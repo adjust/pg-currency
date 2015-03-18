@@ -1,0 +1,108 @@
+SELECT 'AED'::currency < 'AED'::currency;
+ ?column? 
+----------
+ f
+(1 row)
+
+SELECT 'AED'::currency < 'AFN'::currency;
+ ?column? 
+----------
+ t
+(1 row)
+
+SELECT 'AFN'::currency < 'AED'::currency;
+ ?column? 
+----------
+ f
+(1 row)
+
+SELECT 'AED'::currency <= 'AED'::currency;
+ ?column? 
+----------
+ t
+(1 row)
+
+SELECT 'AED'::currency <= 'AFN'::currency;
+ ?column? 
+----------
+ t
+(1 row)
+
+SELECT 'AFN'::currency <= 'AED'::currency;
+ ?column? 
+----------
+ f
+(1 row)
+
+SELECT 'AED'::currency = 'AED'::currency;
+ ?column? 
+----------
+ t
+(1 row)
+
+SELECT 'AED'::currency = 'AFN'::currency;
+ ?column? 
+----------
+ f
+(1 row)
+
+SELECT 'AFN'::currency = 'AED'::currency;
+ ?column? 
+----------
+ f
+(1 row)
+
+SELECT 'AED'::currency >= 'AED'::currency;
+ ?column? 
+----------
+ t
+(1 row)
+
+SELECT 'AED'::currency >= 'AFN'::currency;
+ ?column? 
+----------
+ f
+(1 row)
+
+SELECT 'AFN'::currency >= 'AED'::currency;
+ ?column? 
+----------
+ t
+(1 row)
+
+SELECT 'AED'::currency > 'AED'::currency;
+ ?column? 
+----------
+ f
+(1 row)
+
+SELECT 'AED'::currency > 'AFN'::currency;
+ ?column? 
+----------
+ f
+(1 row)
+
+SELECT 'AFN'::currency > 'AED'::currency;
+ ?column? 
+----------
+ t
+(1 row)
+
+SELECT 'AED'::currency <> 'AED'::currency;
+ ?column? 
+----------
+ f
+(1 row)
+
+SELECT 'AED'::currency <> 'AFN'::currency;
+ ?column? 
+----------
+ t
+(1 row)
+
+SELECT 'AFN'::currency <> 'AED'::currency;
+ ?column? 
+----------
+ t
+(1 row)
+

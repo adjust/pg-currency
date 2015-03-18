@@ -1,0 +1,982 @@
+SELECT currency_out('AED');
+ currency_out 
+--------------
+ AED
+(1 row)
+
+SELECT currency_out('AFN');
+ currency_out 
+--------------
+ AFN
+(1 row)
+
+SELECT currency_out('ALL');
+ currency_out 
+--------------
+ ALL
+(1 row)
+
+SELECT currency_out('AMD');
+ currency_out 
+--------------
+ AMD
+(1 row)
+
+SELECT currency_out('ANG');
+ currency_out 
+--------------
+ ANG
+(1 row)
+
+SELECT currency_out('AOA');
+ currency_out 
+--------------
+ AOA
+(1 row)
+
+SELECT currency_out('ARS');
+ currency_out 
+--------------
+ ARS
+(1 row)
+
+SELECT currency_out('AUD');
+ currency_out 
+--------------
+ AUD
+(1 row)
+
+SELECT currency_out('AWG');
+ currency_out 
+--------------
+ AWG
+(1 row)
+
+SELECT currency_out('AZN');
+ currency_out 
+--------------
+ AZN
+(1 row)
+
+SELECT currency_out('BAM');
+ currency_out 
+--------------
+ BAM
+(1 row)
+
+SELECT currency_out('BBD');
+ currency_out 
+--------------
+ BBD
+(1 row)
+
+SELECT currency_out('BDT');
+ currency_out 
+--------------
+ BDT
+(1 row)
+
+SELECT currency_out('BGN');
+ currency_out 
+--------------
+ BGN
+(1 row)
+
+SELECT currency_out('BHD');
+ currency_out 
+--------------
+ BHD
+(1 row)
+
+SELECT currency_out('BIF');
+ currency_out 
+--------------
+ BIF
+(1 row)
+
+SELECT currency_out('BMD');
+ currency_out 
+--------------
+ BMD
+(1 row)
+
+SELECT currency_out('BND');
+ currency_out 
+--------------
+ BND
+(1 row)
+
+SELECT currency_out('BOB');
+ currency_out 
+--------------
+ BOB
+(1 row)
+
+SELECT currency_out('BRL');
+ currency_out 
+--------------
+ BRL
+(1 row)
+
+SELECT currency_out('BSD');
+ currency_out 
+--------------
+ BSD
+(1 row)
+
+SELECT currency_out('BTN');
+ currency_out 
+--------------
+ BTN
+(1 row)
+
+SELECT currency_out('BWP');
+ currency_out 
+--------------
+ BWP
+(1 row)
+
+SELECT currency_out('BYR');
+ currency_out 
+--------------
+ BYR
+(1 row)
+
+SELECT currency_out('BZD');
+ currency_out 
+--------------
+ BZD
+(1 row)
+
+SELECT currency_out('CAD');
+ currency_out 
+--------------
+ CAD
+(1 row)
+
+SELECT currency_out('CDF');
+ currency_out 
+--------------
+ CDF
+(1 row)
+
+SELECT currency_out('CHF');
+ currency_out 
+--------------
+ CHF
+(1 row)
+
+SELECT currency_out('CLP');
+ currency_out 
+--------------
+ CLP
+(1 row)
+
+SELECT currency_out('CNY');
+ currency_out 
+--------------
+ CNY
+(1 row)
+
+SELECT currency_out('COP');
+ currency_out 
+--------------
+ COP
+(1 row)
+
+SELECT currency_out('CRC');
+ currency_out 
+--------------
+ CRC
+(1 row)
+
+SELECT currency_out('CUC');
+ currency_out 
+--------------
+ CUC
+(1 row)
+
+SELECT currency_out('CUP');
+ currency_out 
+--------------
+ CUP
+(1 row)
+
+SELECT currency_out('CVE');
+ currency_out 
+--------------
+ CVE
+(1 row)
+
+SELECT currency_out('CZK');
+ currency_out 
+--------------
+ CZK
+(1 row)
+
+SELECT currency_out('DJF');
+ currency_out 
+--------------
+ DJF
+(1 row)
+
+SELECT currency_out('DKK');
+ currency_out 
+--------------
+ DKK
+(1 row)
+
+SELECT currency_out('DOP');
+ currency_out 
+--------------
+ DOP
+(1 row)
+
+SELECT currency_out('DZD');
+ currency_out 
+--------------
+ DZD
+(1 row)
+
+SELECT currency_out('EGP');
+ currency_out 
+--------------
+ EGP
+(1 row)
+
+SELECT currency_out('ERN');
+ currency_out 
+--------------
+ ERN
+(1 row)
+
+SELECT currency_out('ETB');
+ currency_out 
+--------------
+ ETB
+(1 row)
+
+SELECT currency_out('EUR');
+ currency_out 
+--------------
+ EUR
+(1 row)
+
+SELECT currency_out('FJD');
+ currency_out 
+--------------
+ FJD
+(1 row)
+
+SELECT currency_out('FKP');
+ currency_out 
+--------------
+ FKP
+(1 row)
+
+SELECT currency_out('GBP');
+ currency_out 
+--------------
+ GBP
+(1 row)
+
+SELECT currency_out('GEL');
+ currency_out 
+--------------
+ GEL
+(1 row)
+
+SELECT currency_out('GGP');
+ currency_out 
+--------------
+ GGP
+(1 row)
+
+SELECT currency_out('GHS');
+ currency_out 
+--------------
+ GHS
+(1 row)
+
+SELECT currency_out('GIP');
+ currency_out 
+--------------
+ GIP
+(1 row)
+
+SELECT currency_out('GMD');
+ currency_out 
+--------------
+ GMD
+(1 row)
+
+SELECT currency_out('GNF');
+ currency_out 
+--------------
+ GNF
+(1 row)
+
+SELECT currency_out('GTQ');
+ currency_out 
+--------------
+ GTQ
+(1 row)
+
+SELECT currency_out('GYD');
+ currency_out 
+--------------
+ GYD
+(1 row)
+
+SELECT currency_out('HKD');
+ currency_out 
+--------------
+ HKD
+(1 row)
+
+SELECT currency_out('HNL');
+ currency_out 
+--------------
+ HNL
+(1 row)
+
+SELECT currency_out('HRK');
+ currency_out 
+--------------
+ HRK
+(1 row)
+
+SELECT currency_out('HTG');
+ currency_out 
+--------------
+ HTG
+(1 row)
+
+SELECT currency_out('HUF');
+ currency_out 
+--------------
+ HUF
+(1 row)
+
+SELECT currency_out('IDR');
+ currency_out 
+--------------
+ IDR
+(1 row)
+
+SELECT currency_out('ILS');
+ currency_out 
+--------------
+ ILS
+(1 row)
+
+SELECT currency_out('IMP');
+ currency_out 
+--------------
+ IMP
+(1 row)
+
+SELECT currency_out('INR');
+ currency_out 
+--------------
+ INR
+(1 row)
+
+SELECT currency_out('IQD');
+ currency_out 
+--------------
+ IQD
+(1 row)
+
+SELECT currency_out('IRR');
+ currency_out 
+--------------
+ IRR
+(1 row)
+
+SELECT currency_out('ISK');
+ currency_out 
+--------------
+ ISK
+(1 row)
+
+SELECT currency_out('JEP');
+ currency_out 
+--------------
+ JEP
+(1 row)
+
+SELECT currency_out('JMD');
+ currency_out 
+--------------
+ JMD
+(1 row)
+
+SELECT currency_out('JOD');
+ currency_out 
+--------------
+ JOD
+(1 row)
+
+SELECT currency_out('JPY');
+ currency_out 
+--------------
+ JPY
+(1 row)
+
+SELECT currency_out('KES');
+ currency_out 
+--------------
+ KES
+(1 row)
+
+SELECT currency_out('KGS');
+ currency_out 
+--------------
+ KGS
+(1 row)
+
+SELECT currency_out('KHR');
+ currency_out 
+--------------
+ KHR
+(1 row)
+
+SELECT currency_out('KMF');
+ currency_out 
+--------------
+ KMF
+(1 row)
+
+SELECT currency_out('KPW');
+ currency_out 
+--------------
+ KPW
+(1 row)
+
+SELECT currency_out('KRW');
+ currency_out 
+--------------
+ KRW
+(1 row)
+
+SELECT currency_out('KWD');
+ currency_out 
+--------------
+ KWD
+(1 row)
+
+SELECT currency_out('KYD');
+ currency_out 
+--------------
+ KYD
+(1 row)
+
+SELECT currency_out('KZT');
+ currency_out 
+--------------
+ KZT
+(1 row)
+
+SELECT currency_out('LAK');
+ currency_out 
+--------------
+ LAK
+(1 row)
+
+SELECT currency_out('LBP');
+ currency_out 
+--------------
+ LBP
+(1 row)
+
+SELECT currency_out('LKR');
+ currency_out 
+--------------
+ LKR
+(1 row)
+
+SELECT currency_out('LRD');
+ currency_out 
+--------------
+ LRD
+(1 row)
+
+SELECT currency_out('LSL');
+ currency_out 
+--------------
+ LSL
+(1 row)
+
+SELECT currency_out('LTL');
+ currency_out 
+--------------
+ LTL
+(1 row)
+
+SELECT currency_out('LYD');
+ currency_out 
+--------------
+ LYD
+(1 row)
+
+SELECT currency_out('MAD');
+ currency_out 
+--------------
+ MAD
+(1 row)
+
+SELECT currency_out('MDL');
+ currency_out 
+--------------
+ MDL
+(1 row)
+
+SELECT currency_out('MGA');
+ currency_out 
+--------------
+ MGA
+(1 row)
+
+SELECT currency_out('MKD');
+ currency_out 
+--------------
+ MKD
+(1 row)
+
+SELECT currency_out('MMK');
+ currency_out 
+--------------
+ MMK
+(1 row)
+
+SELECT currency_out('MNT');
+ currency_out 
+--------------
+ MNT
+(1 row)
+
+SELECT currency_out('MOP');
+ currency_out 
+--------------
+ MOP
+(1 row)
+
+SELECT currency_out('MRO');
+ currency_out 
+--------------
+ MRO
+(1 row)
+
+SELECT currency_out('MUR');
+ currency_out 
+--------------
+ MUR
+(1 row)
+
+SELECT currency_out('MVR');
+ currency_out 
+--------------
+ MVR
+(1 row)
+
+SELECT currency_out('MWK');
+ currency_out 
+--------------
+ MWK
+(1 row)
+
+SELECT currency_out('MXN');
+ currency_out 
+--------------
+ MXN
+(1 row)
+
+SELECT currency_out('MYR');
+ currency_out 
+--------------
+ MYR
+(1 row)
+
+SELECT currency_out('MZN');
+ currency_out 
+--------------
+ MZN
+(1 row)
+
+SELECT currency_out('NAD');
+ currency_out 
+--------------
+ NAD
+(1 row)
+
+SELECT currency_out('NGN');
+ currency_out 
+--------------
+ NGN
+(1 row)
+
+SELECT currency_out('NIO');
+ currency_out 
+--------------
+ NIO
+(1 row)
+
+SELECT currency_out('NOK');
+ currency_out 
+--------------
+ NOK
+(1 row)
+
+SELECT currency_out('NPR');
+ currency_out 
+--------------
+ NPR
+(1 row)
+
+SELECT currency_out('NZD');
+ currency_out 
+--------------
+ NZD
+(1 row)
+
+SELECT currency_out('OMR');
+ currency_out 
+--------------
+ OMR
+(1 row)
+
+SELECT currency_out('PAB');
+ currency_out 
+--------------
+ PAB
+(1 row)
+
+SELECT currency_out('PEN');
+ currency_out 
+--------------
+ PEN
+(1 row)
+
+SELECT currency_out('PGK');
+ currency_out 
+--------------
+ PGK
+(1 row)
+
+SELECT currency_out('PHP');
+ currency_out 
+--------------
+ PHP
+(1 row)
+
+SELECT currency_out('PKR');
+ currency_out 
+--------------
+ PKR
+(1 row)
+
+SELECT currency_out('PLN');
+ currency_out 
+--------------
+ PLN
+(1 row)
+
+SELECT currency_out('PYG');
+ currency_out 
+--------------
+ PYG
+(1 row)
+
+SELECT currency_out('QAR');
+ currency_out 
+--------------
+ QAR
+(1 row)
+
+SELECT currency_out('RON');
+ currency_out 
+--------------
+ RON
+(1 row)
+
+SELECT currency_out('RSD');
+ currency_out 
+--------------
+ RSD
+(1 row)
+
+SELECT currency_out('RUB');
+ currency_out 
+--------------
+ RUB
+(1 row)
+
+SELECT currency_out('RWF');
+ currency_out 
+--------------
+ RWF
+(1 row)
+
+SELECT currency_out('SAR');
+ currency_out 
+--------------
+ SAR
+(1 row)
+
+SELECT currency_out('SBD');
+ currency_out 
+--------------
+ SBD
+(1 row)
+
+SELECT currency_out('SCR');
+ currency_out 
+--------------
+ SCR
+(1 row)
+
+SELECT currency_out('SDG');
+ currency_out 
+--------------
+ SDG
+(1 row)
+
+SELECT currency_out('SEK');
+ currency_out 
+--------------
+ SEK
+(1 row)
+
+SELECT currency_out('SGD');
+ currency_out 
+--------------
+ SGD
+(1 row)
+
+SELECT currency_out('SHP');
+ currency_out 
+--------------
+ SHP
+(1 row)
+
+SELECT currency_out('SLL');
+ currency_out 
+--------------
+ SLL
+(1 row)
+
+SELECT currency_out('SOS');
+ currency_out 
+--------------
+ SOS
+(1 row)
+
+SELECT currency_out('SPL');
+ currency_out 
+--------------
+ SPL
+(1 row)
+
+SELECT currency_out('SRD');
+ currency_out 
+--------------
+ SRD
+(1 row)
+
+SELECT currency_out('STD');
+ currency_out 
+--------------
+ STD
+(1 row)
+
+SELECT currency_out('SVC');
+ currency_out 
+--------------
+ SVC
+(1 row)
+
+SELECT currency_out('SYP');
+ currency_out 
+--------------
+ SYP
+(1 row)
+
+SELECT currency_out('SZL');
+ currency_out 
+--------------
+ SZL
+(1 row)
+
+SELECT currency_out('THB');
+ currency_out 
+--------------
+ THB
+(1 row)
+
+SELECT currency_out('TJS');
+ currency_out 
+--------------
+ TJS
+(1 row)
+
+SELECT currency_out('TMT');
+ currency_out 
+--------------
+ TMT
+(1 row)
+
+SELECT currency_out('TND');
+ currency_out 
+--------------
+ TND
+(1 row)
+
+SELECT currency_out('TOP');
+ currency_out 
+--------------
+ TOP
+(1 row)
+
+SELECT currency_out('TRY');
+ currency_out 
+--------------
+ TRY
+(1 row)
+
+SELECT currency_out('TTD');
+ currency_out 
+--------------
+ TTD
+(1 row)
+
+SELECT currency_out('TVD');
+ currency_out 
+--------------
+ TVD
+(1 row)
+
+SELECT currency_out('TWD');
+ currency_out 
+--------------
+ TWD
+(1 row)
+
+SELECT currency_out('TZS');
+ currency_out 
+--------------
+ TZS
+(1 row)
+
+SELECT currency_out('UAH');
+ currency_out 
+--------------
+ UAH
+(1 row)
+
+SELECT currency_out('UGX');
+ currency_out 
+--------------
+ UGX
+(1 row)
+
+SELECT currency_out('USD');
+ currency_out 
+--------------
+ USD
+(1 row)
+
+SELECT currency_out('UYU');
+ currency_out 
+--------------
+ UYU
+(1 row)
+
+SELECT currency_out('UZS');
+ currency_out 
+--------------
+ UZS
+(1 row)
+
+SELECT currency_out('VEF');
+ currency_out 
+--------------
+ VEF
+(1 row)
+
+SELECT currency_out('VND');
+ currency_out 
+--------------
+ VND
+(1 row)
+
+SELECT currency_out('VUV');
+ currency_out 
+--------------
+ VUV
+(1 row)
+
+SELECT currency_out('WST');
+ currency_out 
+--------------
+ WST
+(1 row)
+
+SELECT currency_out('XAF');
+ currency_out 
+--------------
+ XAF
+(1 row)
+
+SELECT currency_out('XCD');
+ currency_out 
+--------------
+ XCD
+(1 row)
+
+SELECT currency_out('XDR');
+ currency_out 
+--------------
+ XDR
+(1 row)
+
+SELECT currency_out('XOF');
+ currency_out 
+--------------
+ XOF
+(1 row)
+
+SELECT currency_out('XPF');
+ currency_out 
+--------------
+ XPF
+(1 row)
+
+SELECT currency_out('YER');
+ currency_out 
+--------------
+ YER
+(1 row)
+
+SELECT currency_out('ZAR');
+ currency_out 
+--------------
+ ZAR
+(1 row)
+
+SELECT currency_out('ZMW');
+ currency_out 
+--------------
+ ZMW
+(1 row)
+
+SELECT currency_out('ZWD');
+ currency_out 
+--------------
+ ZWD
+(1 row)
+
+SELECT currency_out('ZZZ');
+ERROR:  unknown currency type: ZZZ
+LINE 1: SELECT currency_out('ZZZ');
+                            ^
