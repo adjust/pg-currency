@@ -31,40 +31,57 @@ CREATE TYPE currency (
     PASSEDBYVALUE
 );
 
+COMMENT ON TYPE currency
+  IS '1-byte ISO 4217 Currency Code';
+
 CREATE FUNCTION currency_lt(currency, currency)
     RETURNS BOOL
     AS '$libdir/currency.so'
     LANGUAGE C IMMUTABLE STRICT;
+
+COMMENT ON FUNCTION currency_lt(currency, currency) IS 'implementation of < operator';
 
 CREATE FUNCTION currency_le(currency, currency)
     RETURNS BOOL
     AS '$libdir/currency.so'
     LANGUAGE C IMMUTABLE STRICT;
 
+COMMENT ON FUNCTION currency_le(currency, currency) IS 'implementation of <= operator';
+
 CREATE FUNCTION currency_eq(currency, currency)
     RETURNS BOOL
     AS '$libdir/currency.so'
     LANGUAGE C IMMUTABLE STRICT;
+
+COMMENT ON FUNCTION currency_eq(currency, currency) IS 'implementation of = operator';
 
 CREATE FUNCTION currency_neq(currency, currency)
     RETURNS BOOL
     AS '$libdir/currency.so'
     LANGUAGE C IMMUTABLE STRICT;
 
+COMMENT ON FUNCTION currency_neq(currency, currency) IS 'implementation of <> operator';
+
 CREATE FUNCTION currency_ge(currency, currency)
     RETURNS BOOL
     AS '$libdir/currency.so'
     LANGUAGE C IMMUTABLE STRICT;
+
+COMMENT ON FUNCTION currency_ge(currency, currency) IS 'implementation of >= operator';
 
 CREATE FUNCTION currency_gt(currency, currency)
     RETURNS BOOL
     AS '$libdir/currency.so'
     LANGUAGE C IMMUTABLE STRICT;
 
+COMMENT ON FUNCTION currency_gt(currency, currency) IS 'implementation of > operator';
+
 CREATE FUNCTION hash_currency(currency)
     RETURNS integer
     AS '$libdir/currency.so'
     LANGUAGE C IMMUTABLE STRICT;
+
+COMMENT ON FUNCTION hash_currency(currency) IS 'hash';
 
 CREATE OPERATOR < (
     leftarg = currency,
