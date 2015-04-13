@@ -76,6 +76,8 @@ CREATE OPERATOR < (
     join = scalarltjoinsel
 );
 
+COMMENT ON OPERATOR <(currency, currency) IS 'less than';
+
 CREATE OPERATOR <= (
     leftarg = currency,
     rightarg = currency,
@@ -86,15 +88,20 @@ CREATE OPERATOR <= (
     join = scalarltjoinsel
 );
 
+COMMENT ON OPERATOR <=(currency, currency) IS 'less than or equal';
+
 CREATE OPERATOR = (
     leftarg = currency,
     rightarg = currency,
     procedure = currency_eq,
     commutator = =,
     negator   = <>,
-    restrict = scalarltsel,
-    join = scalarltjoinsel
+    restrict = eqsel,
+    join = eqjoinsel,
+    HASHES, MERGES
 );
+
+COMMENT ON OPERATOR =(currency, currency) IS 'equal';
 
 CREATE OPERATOR >= (
     leftarg = currency,
@@ -102,9 +109,11 @@ CREATE OPERATOR >= (
     procedure = currency_ge,
     commutator = <=,
     negator   = <,
-    restrict = scalarltsel,
-    join = scalarltjoinsel
+    restrict = scalargtsel,
+    join = scalargtjoinsel
 );
+
+COMMENT ON OPERATOR >=(currency, currency) IS 'greater than or equal';
 
 CREATE OPERATOR > (
     leftarg = currency,
@@ -112,20 +121,23 @@ CREATE OPERATOR > (
     procedure = currency_gt,
     commutator = <,
     negator   = <=,
-    restrict = scalarltsel,
-    join = scalarltjoinsel
+    restrict = scalargtsel,
+    join = scalargtjoinsel
 );
+
+COMMENT ON OPERATOR >(currency, currency) IS 'greater than';
 
 CREATE OPERATOR <> (
     leftarg = currency,
     rightarg = currency,
     procedure = currency_neq,
     commutator = <>,
-    negator = =, 
+    negator = =,
     restrict = neqsel,
     join = neqjoinsel
 );
 
+COMMENT ON OPERATOR <>(currency, currency) IS 'not equal';
 
 CREATE FUNCTION currency_cmp(currency, currency)
     RETURNS int4
@@ -134,14 +146,14 @@ CREATE FUNCTION currency_cmp(currency, currency)
 
 CREATE OPERATOR CLASS currency_ops
     DEFAULT FOR TYPE currency USING btree AS
-        OPERATOR        1       < , 
+        OPERATOR        1       < ,
         OPERATOR        2       <= ,
-        OPERATOR        3       = , 
+        OPERATOR        3       = ,
         OPERATOR        4       >= ,
-        OPERATOR        5       > , 
+        OPERATOR        5       > ,
         FUNCTION        1       currency_cmp(currency, currency);
 
 CREATE OPERATOR CLASS currency_ops
     DEFAULT FOR TYPE currency USING hash AS
-        OPERATOR        1       = , 
+        OPERATOR        1       = ,
         FUNCTION        1       hash_currency(currency);
