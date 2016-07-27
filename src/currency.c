@@ -169,6 +169,8 @@ static currency sort_map[] = {
   24
 };
 
+_Static_assert (LAST == sizeof(sort_map) / sizeof(sort_map[0]) + 1, "sort map size and Currency size should be equal");
+
 static int
 currency_cmp_internal(currency a, currency b)
 {
@@ -185,170 +187,170 @@ currency_in(PG_FUNCTION_ARGS)
 
     switch (str[2] | str[1] << 8 | str[0] << 16)
     {
-        case AED: PG_RETURN_CURRENCY(1);
-        case AFN: PG_RETURN_CURRENCY(2);
-        case ALL: PG_RETURN_CURRENCY(3);
-        case AMD: PG_RETURN_CURRENCY(4);
-        case ANG: PG_RETURN_CURRENCY(5);
-        case AOA: PG_RETURN_CURRENCY(6);
-        case ARS: PG_RETURN_CURRENCY(7);
-        case AUD: PG_RETURN_CURRENCY(8);
-        case AWG: PG_RETURN_CURRENCY(9);
-        case AZN: PG_RETURN_CURRENCY(10);
-        case BAM: PG_RETURN_CURRENCY(11);
-        case BBD: PG_RETURN_CURRENCY(12);
-        case BDT: PG_RETURN_CURRENCY(13);
-        case BGN: PG_RETURN_CURRENCY(14);
-        case BHD: PG_RETURN_CURRENCY(15);
-        case BIF: PG_RETURN_CURRENCY(16);
-        case BMD: PG_RETURN_CURRENCY(17);
-        case BND: PG_RETURN_CURRENCY(18);
-        case BOB: PG_RETURN_CURRENCY(19);
-        case BRL: PG_RETURN_CURRENCY(20);
-        case BSD: PG_RETURN_CURRENCY(21);
-        case BTN: PG_RETURN_CURRENCY(22);
-        case BWP: PG_RETURN_CURRENCY(23);
-        case BYR: PG_RETURN_CURRENCY(24);
-        case BZD: PG_RETURN_CURRENCY(25);
-        case CAD: PG_RETURN_CURRENCY(26);
-        case CDF: PG_RETURN_CURRENCY(27);
-        case CHF: PG_RETURN_CURRENCY(28);
-        case CLP: PG_RETURN_CURRENCY(29);
-        case CNY: PG_RETURN_CURRENCY(30);
-        case COP: PG_RETURN_CURRENCY(31);
-        case CRC: PG_RETURN_CURRENCY(32);
-        case CUC: PG_RETURN_CURRENCY(33);
-        case CUP: PG_RETURN_CURRENCY(34);
-        case CVE: PG_RETURN_CURRENCY(35);
-        case CZK: PG_RETURN_CURRENCY(36);
-        case DJF: PG_RETURN_CURRENCY(37);
-        case DKK: PG_RETURN_CURRENCY(38);
-        case DOP: PG_RETURN_CURRENCY(39);
-        case DZD: PG_RETURN_CURRENCY(40);
-        case EGP: PG_RETURN_CURRENCY(41);
-        case ERN: PG_RETURN_CURRENCY(42);
-        case ETB: PG_RETURN_CURRENCY(43);
-        case EUR: PG_RETURN_CURRENCY(44);
-        case FJD: PG_RETURN_CURRENCY(45);
-        case FKP: PG_RETURN_CURRENCY(46);
-        case GBP: PG_RETURN_CURRENCY(47);
-        case GEL: PG_RETURN_CURRENCY(48);
-        case GGP: PG_RETURN_CURRENCY(49);
-        case GHS: PG_RETURN_CURRENCY(50);
-        case GIP: PG_RETURN_CURRENCY(51);
-        case GMD: PG_RETURN_CURRENCY(52);
-        case GNF: PG_RETURN_CURRENCY(53);
-        case GTQ: PG_RETURN_CURRENCY(54);
-        case GYD: PG_RETURN_CURRENCY(55);
-        case HKD: PG_RETURN_CURRENCY(56);
-        case HNL: PG_RETURN_CURRENCY(57);
-        case HRK: PG_RETURN_CURRENCY(58);
-        case HTG: PG_RETURN_CURRENCY(59);
-        case HUF: PG_RETURN_CURRENCY(60);
-        case IDR: PG_RETURN_CURRENCY(61);
-        case ILS: PG_RETURN_CURRENCY(62);
-        case IMP: PG_RETURN_CURRENCY(63);
-        case INR: PG_RETURN_CURRENCY(64);
-        case IQD: PG_RETURN_CURRENCY(65);
-        case IRR: PG_RETURN_CURRENCY(66);
-        case ISK: PG_RETURN_CURRENCY(67);
-        case JEP: PG_RETURN_CURRENCY(68);
-        case JMD: PG_RETURN_CURRENCY(69);
-        case JOD: PG_RETURN_CURRENCY(70);
-        case JPY: PG_RETURN_CURRENCY(71);
-        case KES: PG_RETURN_CURRENCY(72);
-        case KGS: PG_RETURN_CURRENCY(73);
-        case KHR: PG_RETURN_CURRENCY(74);
-        case KMF: PG_RETURN_CURRENCY(75);
-        case KPW: PG_RETURN_CURRENCY(76);
-        case KRW: PG_RETURN_CURRENCY(77);
-        case KWD: PG_RETURN_CURRENCY(78);
-        case KYD: PG_RETURN_CURRENCY(79);
-        case KZT: PG_RETURN_CURRENCY(80);
-        case LAK: PG_RETURN_CURRENCY(81);
-        case LBP: PG_RETURN_CURRENCY(82);
-        case LKR: PG_RETURN_CURRENCY(83);
-        case LRD: PG_RETURN_CURRENCY(84);
-        case LSL: PG_RETURN_CURRENCY(85);
-        case LTL: PG_RETURN_CURRENCY(86);
-        case LYD: PG_RETURN_CURRENCY(87);
-        case MAD: PG_RETURN_CURRENCY(88);
-        case MDL: PG_RETURN_CURRENCY(89);
-        case MGA: PG_RETURN_CURRENCY(90);
-        case MKD: PG_RETURN_CURRENCY(91);
-        case MMK: PG_RETURN_CURRENCY(92);
-        case MNT: PG_RETURN_CURRENCY(93);
-        case MOP: PG_RETURN_CURRENCY(94);
-        case MRO: PG_RETURN_CURRENCY(95);
-        case MUR: PG_RETURN_CURRENCY(96);
-        case MVR: PG_RETURN_CURRENCY(97);
-        case MWK: PG_RETURN_CURRENCY(98);
-        case MXN: PG_RETURN_CURRENCY(99);
-        case MYR: PG_RETURN_CURRENCY(100);
-        case MZN: PG_RETURN_CURRENCY(101);
-        case NAD: PG_RETURN_CURRENCY(102);
-        case NGN: PG_RETURN_CURRENCY(103);
-        case NIO: PG_RETURN_CURRENCY(104);
-        case NOK: PG_RETURN_CURRENCY(105);
-        case NPR: PG_RETURN_CURRENCY(106);
-        case NZD: PG_RETURN_CURRENCY(107);
-        case OMR: PG_RETURN_CURRENCY(108);
-        case PAB: PG_RETURN_CURRENCY(109);
-        case PEN: PG_RETURN_CURRENCY(110);
-        case PGK: PG_RETURN_CURRENCY(111);
-        case PHP: PG_RETURN_CURRENCY(112);
-        case PKR: PG_RETURN_CURRENCY(113);
-        case PLN: PG_RETURN_CURRENCY(114);
-        case PYG: PG_RETURN_CURRENCY(115);
-        case QAR: PG_RETURN_CURRENCY(116);
-        case RON: PG_RETURN_CURRENCY(117);
-        case RSD: PG_RETURN_CURRENCY(118);
-        case RUB: PG_RETURN_CURRENCY(119);
-        case RWF: PG_RETURN_CURRENCY(120);
-        case SAR: PG_RETURN_CURRENCY(121);
-        case SBD: PG_RETURN_CURRENCY(122);
-        case SCR: PG_RETURN_CURRENCY(123);
-        case SDG: PG_RETURN_CURRENCY(124);
-        case SEK: PG_RETURN_CURRENCY(125);
-        case SGD: PG_RETURN_CURRENCY(126);
-        case SHP: PG_RETURN_CURRENCY(127);
-        case SLL: PG_RETURN_CURRENCY(128);
-        case SOS: PG_RETURN_CURRENCY(129);
-        case SPL: PG_RETURN_CURRENCY(130);
-        case SRD: PG_RETURN_CURRENCY(131);
-        case STD: PG_RETURN_CURRENCY(132);
-        case SVC: PG_RETURN_CURRENCY(133);
-        case SYP: PG_RETURN_CURRENCY(134);
-        case SZL: PG_RETURN_CURRENCY(135);
-        case THB: PG_RETURN_CURRENCY(136);
-        case TJS: PG_RETURN_CURRENCY(137);
-        case TMT: PG_RETURN_CURRENCY(138);
-        case TND: PG_RETURN_CURRENCY(139);
-        case TOP: PG_RETURN_CURRENCY(140);
-        case TRY: PG_RETURN_CURRENCY(141);
-        case TTD: PG_RETURN_CURRENCY(142);
-        case TVD: PG_RETURN_CURRENCY(143);
-        case TWD: PG_RETURN_CURRENCY(144);
-        case TZS: PG_RETURN_CURRENCY(145);
-        case UAH: PG_RETURN_CURRENCY(146);
-        case UGX: PG_RETURN_CURRENCY(147);
-        case USD: PG_RETURN_CURRENCY(148);
-        case UYU: PG_RETURN_CURRENCY(149);
-        case UZS: PG_RETURN_CURRENCY(150);
-        case VEF: PG_RETURN_CURRENCY(151);
-        case VND: PG_RETURN_CURRENCY(152);
-        case VUV: PG_RETURN_CURRENCY(153);
-        case WST: PG_RETURN_CURRENCY(154);
-        case XAF: PG_RETURN_CURRENCY(155);
-        case XCD: PG_RETURN_CURRENCY(156);
-        case XDR: PG_RETURN_CURRENCY(157);
-        case XOF: PG_RETURN_CURRENCY(158);
-        case XPF: PG_RETURN_CURRENCY(159);
-        case YER: PG_RETURN_CURRENCY(160);
-        case ZAR: PG_RETURN_CURRENCY(161);
-        case ZMW: PG_RETURN_CURRENCY(162);
-        case ZWD: PG_RETURN_CURRENCY(163);
-        case BYN: PG_RETURN_CURRENCY(164);
+        case AED: PG_RETURN_CURRENCY(AED_INTERNAL);
+        case AFN: PG_RETURN_CURRENCY(AFN_INTERNAL);
+        case ALL: PG_RETURN_CURRENCY(ALL_INTERNAL);
+        case AMD: PG_RETURN_CURRENCY(AMD_INTERNAL);
+        case ANG: PG_RETURN_CURRENCY(ANG_INTERNAL);
+        case AOA: PG_RETURN_CURRENCY(AOA_INTERNAL);
+        case ARS: PG_RETURN_CURRENCY(ARS_INTERNAL);
+        case AUD: PG_RETURN_CURRENCY(AUD_INTERNAL);
+        case AWG: PG_RETURN_CURRENCY(AWG_INTERNAL);
+        case AZN: PG_RETURN_CURRENCY(AZN_INTERNAL);
+        case BAM: PG_RETURN_CURRENCY(BAM_INTERNAL);
+        case BBD: PG_RETURN_CURRENCY(BBD_INTERNAL);
+        case BDT: PG_RETURN_CURRENCY(BDT_INTERNAL);
+        case BGN: PG_RETURN_CURRENCY(BGN_INTERNAL);
+        case BHD: PG_RETURN_CURRENCY(BHD_INTERNAL);
+        case BIF: PG_RETURN_CURRENCY(BIF_INTERNAL);
+        case BMD: PG_RETURN_CURRENCY(BMD_INTERNAL);
+        case BND: PG_RETURN_CURRENCY(BND_INTERNAL);
+        case BOB: PG_RETURN_CURRENCY(BOB_INTERNAL);
+        case BRL: PG_RETURN_CURRENCY(BRL_INTERNAL);
+        case BSD: PG_RETURN_CURRENCY(BSD_INTERNAL);
+        case BTN: PG_RETURN_CURRENCY(BTN_INTERNAL);
+        case BWP: PG_RETURN_CURRENCY(BWP_INTERNAL);
+        case BYN: PG_RETURN_CURRENCY(BYN_INTERNAL);
+        case BYR: PG_RETURN_CURRENCY(BYR_INTERNAL);
+        case BZD: PG_RETURN_CURRENCY(BZD_INTERNAL);
+        case CAD: PG_RETURN_CURRENCY(CAD_INTERNAL);
+        case CDF: PG_RETURN_CURRENCY(CDF_INTERNAL);
+        case CHF: PG_RETURN_CURRENCY(CHF_INTERNAL);
+        case CLP: PG_RETURN_CURRENCY(CLP_INTERNAL);
+        case CNY: PG_RETURN_CURRENCY(CNY_INTERNAL);
+        case COP: PG_RETURN_CURRENCY(COP_INTERNAL);
+        case CRC: PG_RETURN_CURRENCY(CRC_INTERNAL);
+        case CUC: PG_RETURN_CURRENCY(CUC_INTERNAL);
+        case CUP: PG_RETURN_CURRENCY(CUP_INTERNAL);
+        case CVE: PG_RETURN_CURRENCY(CVE_INTERNAL);
+        case CZK: PG_RETURN_CURRENCY(CZK_INTERNAL);
+        case DJF: PG_RETURN_CURRENCY(DJF_INTERNAL);
+        case DKK: PG_RETURN_CURRENCY(DKK_INTERNAL);
+        case DOP: PG_RETURN_CURRENCY(DOP_INTERNAL);
+        case DZD: PG_RETURN_CURRENCY(DZD_INTERNAL);
+        case EGP: PG_RETURN_CURRENCY(EGP_INTERNAL);
+        case ERN: PG_RETURN_CURRENCY(ERN_INTERNAL);
+        case ETB: PG_RETURN_CURRENCY(ETB_INTERNAL);
+        case EUR: PG_RETURN_CURRENCY(EUR_INTERNAL);
+        case FJD: PG_RETURN_CURRENCY(FJD_INTERNAL);
+        case FKP: PG_RETURN_CURRENCY(FKP_INTERNAL);
+        case GBP: PG_RETURN_CURRENCY(GBP_INTERNAL);
+        case GEL: PG_RETURN_CURRENCY(GEL_INTERNAL);
+        case GGP: PG_RETURN_CURRENCY(GGP_INTERNAL);
+        case GHS: PG_RETURN_CURRENCY(GHS_INTERNAL);
+        case GIP: PG_RETURN_CURRENCY(GIP_INTERNAL);
+        case GMD: PG_RETURN_CURRENCY(GMD_INTERNAL);
+        case GNF: PG_RETURN_CURRENCY(GNF_INTERNAL);
+        case GTQ: PG_RETURN_CURRENCY(GTQ_INTERNAL);
+        case GYD: PG_RETURN_CURRENCY(GYD_INTERNAL);
+        case HKD: PG_RETURN_CURRENCY(HKD_INTERNAL);
+        case HNL: PG_RETURN_CURRENCY(HNL_INTERNAL);
+        case HRK: PG_RETURN_CURRENCY(HRK_INTERNAL);
+        case HTG: PG_RETURN_CURRENCY(HTG_INTERNAL);
+        case HUF: PG_RETURN_CURRENCY(HUF_INTERNAL);
+        case IDR: PG_RETURN_CURRENCY(IDR_INTERNAL);
+        case ILS: PG_RETURN_CURRENCY(ILS_INTERNAL);
+        case IMP: PG_RETURN_CURRENCY(IMP_INTERNAL);
+        case INR: PG_RETURN_CURRENCY(INR_INTERNAL);
+        case IQD: PG_RETURN_CURRENCY(IQD_INTERNAL);
+        case IRR: PG_RETURN_CURRENCY(IRR_INTERNAL);
+        case ISK: PG_RETURN_CURRENCY(ISK_INTERNAL);
+        case JEP: PG_RETURN_CURRENCY(JEP_INTERNAL);
+        case JMD: PG_RETURN_CURRENCY(JMD_INTERNAL);
+        case JOD: PG_RETURN_CURRENCY(JOD_INTERNAL);
+        case JPY: PG_RETURN_CURRENCY(JPY_INTERNAL);
+        case KES: PG_RETURN_CURRENCY(KES_INTERNAL);
+        case KGS: PG_RETURN_CURRENCY(KGS_INTERNAL);
+        case KHR: PG_RETURN_CURRENCY(KHR_INTERNAL);
+        case KMF: PG_RETURN_CURRENCY(KMF_INTERNAL);
+        case KPW: PG_RETURN_CURRENCY(KPW_INTERNAL);
+        case KRW: PG_RETURN_CURRENCY(KRW_INTERNAL);
+        case KWD: PG_RETURN_CURRENCY(KWD_INTERNAL);
+        case KYD: PG_RETURN_CURRENCY(KYD_INTERNAL);
+        case KZT: PG_RETURN_CURRENCY(KZT_INTERNAL);
+        case LAK: PG_RETURN_CURRENCY(LAK_INTERNAL);
+        case LBP: PG_RETURN_CURRENCY(LBP_INTERNAL);
+        case LKR: PG_RETURN_CURRENCY(LKR_INTERNAL);
+        case LRD: PG_RETURN_CURRENCY(LRD_INTERNAL);
+        case LSL: PG_RETURN_CURRENCY(LSL_INTERNAL);
+        case LTL: PG_RETURN_CURRENCY(LTL_INTERNAL);
+        case LYD: PG_RETURN_CURRENCY(LYD_INTERNAL);
+        case MAD: PG_RETURN_CURRENCY(MAD_INTERNAL);
+        case MDL: PG_RETURN_CURRENCY(MDL_INTERNAL);
+        case MGA: PG_RETURN_CURRENCY(MGA_INTERNAL);
+        case MKD: PG_RETURN_CURRENCY(MKD_INTERNAL);
+        case MMK: PG_RETURN_CURRENCY(MMK_INTERNAL);
+        case MNT: PG_RETURN_CURRENCY(MNT_INTERNAL);
+        case MOP: PG_RETURN_CURRENCY(MOP_INTERNAL);
+        case MRO: PG_RETURN_CURRENCY(MRO_INTERNAL);
+        case MUR: PG_RETURN_CURRENCY(MUR_INTERNAL);
+        case MVR: PG_RETURN_CURRENCY(MVR_INTERNAL);
+        case MWK: PG_RETURN_CURRENCY(MWK_INTERNAL);
+        case MXN: PG_RETURN_CURRENCY(MXN_INTERNAL);
+        case MYR: PG_RETURN_CURRENCY(MYR_INTERNAL);
+        case MZN: PG_RETURN_CURRENCY(MZN_INTERNAL);
+        case NAD: PG_RETURN_CURRENCY(NAD_INTERNAL);
+        case NGN: PG_RETURN_CURRENCY(NGN_INTERNAL);
+        case NIO: PG_RETURN_CURRENCY(NIO_INTERNAL);
+        case NOK: PG_RETURN_CURRENCY(NOK_INTERNAL);
+        case NPR: PG_RETURN_CURRENCY(NPR_INTERNAL);
+        case NZD: PG_RETURN_CURRENCY(NZD_INTERNAL);
+        case OMR: PG_RETURN_CURRENCY(OMR_INTERNAL);
+        case PAB: PG_RETURN_CURRENCY(PAB_INTERNAL);
+        case PEN: PG_RETURN_CURRENCY(PEN_INTERNAL);
+        case PGK: PG_RETURN_CURRENCY(PGK_INTERNAL);
+        case PHP: PG_RETURN_CURRENCY(PHP_INTERNAL);
+        case PKR: PG_RETURN_CURRENCY(PKR_INTERNAL);
+        case PLN: PG_RETURN_CURRENCY(PLN_INTERNAL);
+        case PYG: PG_RETURN_CURRENCY(PYG_INTERNAL);
+        case QAR: PG_RETURN_CURRENCY(QAR_INTERNAL);
+        case RON: PG_RETURN_CURRENCY(RON_INTERNAL);
+        case RSD: PG_RETURN_CURRENCY(RSD_INTERNAL);
+        case RUB: PG_RETURN_CURRENCY(RUB_INTERNAL);
+        case RWF: PG_RETURN_CURRENCY(RWF_INTERNAL);
+        case SAR: PG_RETURN_CURRENCY(SAR_INTERNAL);
+        case SBD: PG_RETURN_CURRENCY(SBD_INTERNAL);
+        case SCR: PG_RETURN_CURRENCY(SCR_INTERNAL);
+        case SDG: PG_RETURN_CURRENCY(SDG_INTERNAL);
+        case SEK: PG_RETURN_CURRENCY(SEK_INTERNAL);
+        case SGD: PG_RETURN_CURRENCY(SGD_INTERNAL);
+        case SHP: PG_RETURN_CURRENCY(SHP_INTERNAL);
+        case SLL: PG_RETURN_CURRENCY(SLL_INTERNAL);
+        case SOS: PG_RETURN_CURRENCY(SOS_INTERNAL);
+        case SPL: PG_RETURN_CURRENCY(SPL_INTERNAL);
+        case SRD: PG_RETURN_CURRENCY(SRD_INTERNAL);
+        case STD: PG_RETURN_CURRENCY(STD_INTERNAL);
+        case SVC: PG_RETURN_CURRENCY(SVC_INTERNAL);
+        case SYP: PG_RETURN_CURRENCY(SYP_INTERNAL);
+        case SZL: PG_RETURN_CURRENCY(SZL_INTERNAL);
+        case THB: PG_RETURN_CURRENCY(THB_INTERNAL);
+        case TJS: PG_RETURN_CURRENCY(TJS_INTERNAL);
+        case TMT: PG_RETURN_CURRENCY(TMT_INTERNAL);
+        case TND: PG_RETURN_CURRENCY(TND_INTERNAL);
+        case TOP: PG_RETURN_CURRENCY(TOP_INTERNAL);
+        case TRY: PG_RETURN_CURRENCY(TRY_INTERNAL);
+        case TTD: PG_RETURN_CURRENCY(TTD_INTERNAL);
+        case TVD: PG_RETURN_CURRENCY(TVD_INTERNAL);
+        case TWD: PG_RETURN_CURRENCY(TWD_INTERNAL);
+        case TZS: PG_RETURN_CURRENCY(TZS_INTERNAL);
+        case UAH: PG_RETURN_CURRENCY(UAH_INTERNAL);
+        case UGX: PG_RETURN_CURRENCY(UGX_INTERNAL);
+        case USD: PG_RETURN_CURRENCY(USD_INTERNAL);
+        case UYU: PG_RETURN_CURRENCY(UYU_INTERNAL);
+        case UZS: PG_RETURN_CURRENCY(UZS_INTERNAL);
+        case VEF: PG_RETURN_CURRENCY(VEF_INTERNAL);
+        case VND: PG_RETURN_CURRENCY(VND_INTERNAL);
+        case VUV: PG_RETURN_CURRENCY(VUV_INTERNAL);
+        case WST: PG_RETURN_CURRENCY(WST_INTERNAL);
+        case XAF: PG_RETURN_CURRENCY(XAF_INTERNAL);
+        case XCD: PG_RETURN_CURRENCY(XCD_INTERNAL);
+        case XDR: PG_RETURN_CURRENCY(XDR_INTERNAL);
+        case XOF: PG_RETURN_CURRENCY(XOF_INTERNAL);
+        case XPF: PG_RETURN_CURRENCY(XPF_INTERNAL);
+        case YER: PG_RETURN_CURRENCY(YER_INTERNAL);
+        case ZAR: PG_RETURN_CURRENCY(ZAR_INTERNAL);
+        case ZMW: PG_RETURN_CURRENCY(ZMW_INTERNAL);
+        case ZWD: PG_RETURN_CURRENCY(ZWD_INTERNAL);
         default: elog(ERROR, "unknown currency type: %s", str);
     }
 }
@@ -361,497 +363,497 @@ currency_out(PG_FUNCTION_ARGS)
     uint32 key = 0;
     switch (curr)
     {
-        case 1:
+        case AED_INTERNAL:
             key = AED;
             break;
-        case 2:
+        case AFN_INTERNAL:
             key = AFN;
             break;
-        case 3:
+        case ALL_INTERNAL:
             key = ALL;
             break;
-        case 4:
+        case AMD_INTERNAL:
             key = AMD;
             break;
-        case 5:
+        case ANG_INTERNAL:
             key = ANG;
             break;
-        case 6:
+        case AOA_INTERNAL:
             key = AOA;
             break;
-        case 7:
+        case ARS_INTERNAL:
             key = ARS;
             break;
-        case 8:
+        case AUD_INTERNAL:
             key = AUD;
             break;
-        case 9:
+        case AWG_INTERNAL:
             key = AWG;
             break;
-        case 10:
+        case AZN_INTERNAL:
             key = AZN;
             break;
-        case 11:
+        case BAM_INTERNAL:
             key = BAM;
             break;
-        case 12:
+        case BBD_INTERNAL:
             key = BBD;
             break;
-        case 13:
+        case BDT_INTERNAL:
             key = BDT;
             break;
-        case 14:
+        case BGN_INTERNAL:
             key = BGN;
             break;
-        case 15:
+        case BHD_INTERNAL:
             key = BHD;
             break;
-        case 16:
+        case BIF_INTERNAL:
             key = BIF;
             break;
-        case 17:
+        case BMD_INTERNAL:
             key = BMD;
             break;
-        case 18:
+        case BND_INTERNAL:
             key = BND;
             break;
-        case 19:
+        case BOB_INTERNAL:
             key = BOB;
             break;
-        case 20:
+        case BRL_INTERNAL:
             key = BRL;
             break;
-        case 21:
+        case BSD_INTERNAL:
             key = BSD;
             break;
-        case 22:
+        case BTN_INTERNAL:
             key = BTN;
             break;
-        case 23:
+        case BWP_INTERNAL:
             key = BWP;
             break;
-        case 24:
+        case BYN_INTERNAL:
+            key = BYN;
+            break;
+        case BYR_INTERNAL:
             key = BYR;
             break;
-        case 25:
+        case BZD_INTERNAL:
             key = BZD;
             break;
-        case 26:
+        case CAD_INTERNAL:
             key = CAD;
             break;
-        case 27:
+        case CDF_INTERNAL:
             key = CDF;
             break;
-        case 28:
+        case CHF_INTERNAL:
             key = CHF;
             break;
-        case 29:
+        case CLP_INTERNAL:
             key = CLP;
             break;
-        case 30:
+        case CNY_INTERNAL:
             key = CNY;
             break;
-        case 31:
+        case COP_INTERNAL:
             key = COP;
             break;
-        case 32:
+        case CRC_INTERNAL:
             key = CRC;
             break;
-        case 33:
+        case CUC_INTERNAL:
             key = CUC;
             break;
-        case 34:
+        case CUP_INTERNAL:
             key = CUP;
             break;
-        case 35:
+        case CVE_INTERNAL:
             key = CVE;
             break;
-        case 36:
+        case CZK_INTERNAL:
             key = CZK;
             break;
-        case 37:
+        case DJF_INTERNAL:
             key = DJF;
             break;
-        case 38:
+        case DKK_INTERNAL:
             key = DKK;
             break;
-        case 39:
+        case DOP_INTERNAL:
             key = DOP;
             break;
-        case 40:
+        case DZD_INTERNAL:
             key = DZD;
             break;
-        case 41:
+        case EGP_INTERNAL:
             key = EGP;
             break;
-        case 42:
+        case ERN_INTERNAL:
             key = ERN;
             break;
-        case 43:
+        case ETB_INTERNAL:
             key = ETB;
             break;
-        case 44:
+        case EUR_INTERNAL:
             key = EUR;
             break;
-        case 45:
+        case FJD_INTERNAL:
             key = FJD;
             break;
-        case 46:
+        case FKP_INTERNAL:
             key = FKP;
             break;
-        case 47:
+        case GBP_INTERNAL:
             key = GBP;
             break;
-        case 48:
+        case GEL_INTERNAL:
             key = GEL;
             break;
-        case 49:
+        case GGP_INTERNAL:
             key = GGP;
             break;
-        case 50:
+        case GHS_INTERNAL:
             key = GHS;
             break;
-        case 51:
+        case GIP_INTERNAL:
             key = GIP;
             break;
-        case 52:
+        case GMD_INTERNAL:
             key = GMD;
             break;
-        case 53:
+        case GNF_INTERNAL:
             key = GNF;
             break;
-        case 54:
+        case GTQ_INTERNAL:
             key = GTQ;
             break;
-        case 55:
+        case GYD_INTERNAL:
             key = GYD;
             break;
-        case 56:
+        case HKD_INTERNAL:
             key = HKD;
             break;
-        case 57:
+        case HNL_INTERNAL:
             key = HNL;
             break;
-        case 58:
+        case HRK_INTERNAL:
             key = HRK;
             break;
-        case 59:
+        case HTG_INTERNAL:
             key = HTG;
             break;
-        case 60:
+        case HUF_INTERNAL:
             key = HUF;
             break;
-        case 61:
+        case IDR_INTERNAL:
             key = IDR;
             break;
-        case 62:
+        case ILS_INTERNAL:
             key = ILS;
             break;
-        case 63:
+        case IMP_INTERNAL:
             key = IMP;
             break;
-        case 64:
+        case INR_INTERNAL:
             key = INR;
             break;
-        case 65:
+        case IQD_INTERNAL:
             key = IQD;
             break;
-        case 66:
+        case IRR_INTERNAL:
             key = IRR;
             break;
-        case 67:
+        case ISK_INTERNAL:
             key = ISK;
             break;
-        case 68:
+        case JEP_INTERNAL:
             key = JEP;
             break;
-        case 69:
+        case JMD_INTERNAL:
             key = JMD;
             break;
-        case 70:
+        case JOD_INTERNAL:
             key = JOD;
             break;
-        case 71:
+        case JPY_INTERNAL:
             key = JPY;
             break;
-        case 72:
+        case KES_INTERNAL:
             key = KES;
             break;
-        case 73:
+        case KGS_INTERNAL:
             key = KGS;
             break;
-        case 74:
+        case KHR_INTERNAL:
             key = KHR;
             break;
-        case 75:
+        case KMF_INTERNAL:
             key = KMF;
             break;
-        case 76:
+        case KPW_INTERNAL:
             key = KPW;
             break;
-        case 77:
+        case KRW_INTERNAL:
             key = KRW;
             break;
-        case 78:
+        case KWD_INTERNAL:
             key = KWD;
             break;
-        case 79:
+        case KYD_INTERNAL:
             key = KYD;
             break;
-        case 80:
+        case KZT_INTERNAL:
             key = KZT;
             break;
-        case 81:
+        case LAK_INTERNAL:
             key = LAK;
             break;
-        case 82:
+        case LBP_INTERNAL:
             key = LBP;
             break;
-        case 83:
+        case LKR_INTERNAL:
             key = LKR;
             break;
-        case 84:
+        case LRD_INTERNAL:
             key = LRD;
             break;
-        case 85:
+        case LSL_INTERNAL:
             key = LSL;
             break;
-        case 86:
+        case LTL_INTERNAL:
             key = LTL;
             break;
-        case 87:
+        case LYD_INTERNAL:
             key = LYD;
             break;
-        case 88:
+        case MAD_INTERNAL:
             key = MAD;
             break;
-        case 89:
+        case MDL_INTERNAL:
             key = MDL;
             break;
-        case 90:
+        case MGA_INTERNAL:
             key = MGA;
             break;
-        case 91:
+        case MKD_INTERNAL:
             key = MKD;
             break;
-        case 92:
+        case MMK_INTERNAL:
             key = MMK;
             break;
-        case 93:
+        case MNT_INTERNAL:
             key = MNT;
             break;
-        case 94:
+        case MOP_INTERNAL:
             key = MOP;
             break;
-        case 95:
+        case MRO_INTERNAL:
             key = MRO;
             break;
-        case 96:
+        case MUR_INTERNAL:
             key = MUR;
             break;
-        case 97:
+        case MVR_INTERNAL:
             key = MVR;
             break;
-        case 98:
+        case MWK_INTERNAL:
             key = MWK;
             break;
-        case 99:
+        case MXN_INTERNAL:
             key = MXN;
             break;
-        case 100:
+        case MYR_INTERNAL:
             key = MYR;
             break;
-        case 101:
+        case MZN_INTERNAL:
             key = MZN;
             break;
-        case 102:
+        case NAD_INTERNAL:
             key = NAD;
             break;
-        case 103:
+        case NGN_INTERNAL:
             key = NGN;
             break;
-        case 104:
+        case NIO_INTERNAL:
             key = NIO;
             break;
-        case 105:
+        case NOK_INTERNAL:
             key = NOK;
             break;
-        case 106:
+        case NPR_INTERNAL:
             key = NPR;
             break;
-        case 107:
+        case NZD_INTERNAL:
             key = NZD;
             break;
-        case 108:
+        case OMR_INTERNAL:
             key = OMR;
             break;
-        case 109:
+        case PAB_INTERNAL:
             key = PAB;
             break;
-        case 110:
+        case PEN_INTERNAL:
             key = PEN;
             break;
-        case 111:
+        case PGK_INTERNAL:
             key = PGK;
             break;
-        case 112:
+        case PHP_INTERNAL:
             key = PHP;
             break;
-        case 113:
+        case PKR_INTERNAL:
             key = PKR;
             break;
-        case 114:
+        case PLN_INTERNAL:
             key = PLN;
             break;
-        case 115:
+        case PYG_INTERNAL:
             key = PYG;
             break;
-        case 116:
+        case QAR_INTERNAL:
             key = QAR;
             break;
-        case 117:
+        case RON_INTERNAL:
             key = RON;
             break;
-        case 118:
+        case RSD_INTERNAL:
             key = RSD;
             break;
-        case 119:
+        case RUB_INTERNAL:
             key = RUB;
             break;
-        case 120:
+        case RWF_INTERNAL:
             key = RWF;
             break;
-        case 121:
+        case SAR_INTERNAL:
             key = SAR;
             break;
-        case 122:
+        case SBD_INTERNAL:
             key = SBD;
             break;
-        case 123:
+        case SCR_INTERNAL:
             key = SCR;
             break;
-        case 124:
+        case SDG_INTERNAL:
             key = SDG;
             break;
-        case 125:
+        case SEK_INTERNAL:
             key = SEK;
             break;
-        case 126:
+        case SGD_INTERNAL:
             key = SGD;
             break;
-        case 127:
+        case SHP_INTERNAL:
             key = SHP;
             break;
-        case 128:
+        case SLL_INTERNAL:
             key = SLL;
             break;
-        case 129:
+        case SOS_INTERNAL:
             key = SOS;
             break;
-        case 130:
+        case SPL_INTERNAL:
             key = SPL;
             break;
-        case 131:
+        case SRD_INTERNAL:
             key = SRD;
             break;
-        case 132:
+        case STD_INTERNAL:
             key = STD;
             break;
-        case 133:
+        case SVC_INTERNAL:
             key = SVC;
             break;
-        case 134:
+        case SYP_INTERNAL:
             key = SYP;
             break;
-        case 135:
+        case SZL_INTERNAL:
             key = SZL;
             break;
-        case 136:
+        case THB_INTERNAL:
             key = THB;
             break;
-        case 137:
+        case TJS_INTERNAL:
             key = TJS;
             break;
-        case 138:
+        case TMT_INTERNAL:
             key = TMT;
             break;
-        case 139:
+        case TND_INTERNAL:
             key = TND;
             break;
-        case 140:
+        case TOP_INTERNAL:
             key = TOP;
             break;
-        case 141:
+        case TRY_INTERNAL:
             key = TRY;
             break;
-        case 142:
+        case TTD_INTERNAL:
             key = TTD;
             break;
-        case 143:
+        case TVD_INTERNAL:
             key = TVD;
             break;
-        case 144:
+        case TWD_INTERNAL:
             key = TWD;
             break;
-        case 145:
+        case TZS_INTERNAL:
             key = TZS;
             break;
-        case 146:
+        case UAH_INTERNAL:
             key = UAH;
             break;
-        case 147:
+        case UGX_INTERNAL:
             key = UGX;
             break;
-        case 148:
+        case USD_INTERNAL:
             key = USD;
             break;
-        case 149:
+        case UYU_INTERNAL:
             key = UYU;
             break;
-        case 150:
+        case UZS_INTERNAL:
             key = UZS;
             break;
-        case 151:
+        case VEF_INTERNAL:
             key = VEF;
             break;
-        case 152:
+        case VND_INTERNAL:
             key = VND;
             break;
-        case 153:
+        case VUV_INTERNAL:
             key = VUV;
             break;
-        case 154:
+        case WST_INTERNAL:
             key = WST;
             break;
-        case 155:
+        case XAF_INTERNAL:
             key = XAF;
             break;
-        case 156:
+        case XCD_INTERNAL:
             key = XCD;
             break;
-        case 157:
+        case XDR_INTERNAL:
             key = XDR;
             break;
-        case 158:
+        case XOF_INTERNAL:
             key = XOF;
             break;
-        case 159:
+        case XPF_INTERNAL:
             key = XPF;
             break;
-        case 160:
+        case YER_INTERNAL:
             key = YER;
             break;
-        case 161:
+        case ZAR_INTERNAL:
             key = ZAR;
             break;
-        case 162:
+        case ZMW_INTERNAL:
             key = ZMW;
             break;
-        case 163:
+        case ZWD_INTERNAL:
             key = ZWD;
-            break;
-        case 164:
-            key = BYN;
             break;
         default:
             elog(ERROR, "internal currency representation unknown: %u", key);
