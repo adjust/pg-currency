@@ -34,8 +34,8 @@ typedef unsigned char currency;
 #define BSD 4346692
 #define BTN 4346958
 #define BWP 4347728
-#define BYR 4348242
 #define BYN 4348238
+#define BYR 4348242
 #define BZD 4348484
 #define CAD 4407620
 #define CDF 4408390
