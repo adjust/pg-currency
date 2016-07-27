@@ -142,6 +142,12 @@ SELECT currency_out('BYR');
  BYR
 (1 row)
 
+SELECT currency_out('BYN');
+ currency_out 
+--------------
+ BYN
+(1 row)
+
 SELECT currency_out('BZD');
  currency_out 
 --------------

@@ -186,6 +186,7 @@ currency_in(PG_FUNCTION_ARGS)
         case ZAR: PG_RETURN_CURRENCY(161);
         case ZMW: PG_RETURN_CURRENCY(162);
         case ZWD: PG_RETURN_CURRENCY(163);
+        case BYN: PG_RETURN_CURRENCY(164);
         default: elog(ERROR, "unknown currency type: %s", str);
     }
 }
@@ -686,6 +687,9 @@ currency_out(PG_FUNCTION_ARGS)
             break;
         case 163:
             key = ZWD;
+            break;
+        case 164:
+            key = BYN;
             break;
         default:
             elog(ERROR, "internal currency representation unknown: %u", key);
