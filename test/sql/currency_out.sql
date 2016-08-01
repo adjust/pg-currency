@@ -21,6 +21,7 @@ SELECT currency_out('BRL');
 SELECT currency_out('BSD');
 SELECT currency_out('BTN');
 SELECT currency_out('BWP');
+SELECT currency_out('BYN');
 SELECT currency_out('BYR');
 SELECT currency_out('BZD');
 SELECT currency_out('CAD');

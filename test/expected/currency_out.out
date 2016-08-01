@@ -136,6 +136,12 @@ SELECT currency_out('BWP');
  BWP
 (1 row)
 
+SELECT currency_out('BYN');
+ currency_out 
+--------------
+ BYN
+(1 row)
+
 SELECT currency_out('BYR');
  currency_out 
 --------------
