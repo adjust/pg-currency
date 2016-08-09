@@ -949,3 +949,32 @@ hash_currency(PG_FUNCTION_ARGS)
 {
         return hash_uint32((int32) PG_GETARG_CHAR(0));
 }
+
+Datum
+supported_currencies(PG_FUNCTION_ARGS)
+{
+    FuncCallContext *funcctx;
+
+    /* stuff done only on the first call of the function */
+    if (SRF_IS_FIRSTCALL())
+    {
+        /* create a function context for cross-call persistence */
+        funcctx = SRF_FIRSTCALL_INIT();
+    }
+
+    /* stuff done on every call of the function */
+    funcctx = SRF_PERCALL_SETUP();
+
+    if (funcctx->call_cntr < LAST - 1)
+    {
+        Datum currency = CurrencyGetDatum(funcctx->call_cntr + 1);
+
+        /* do when there is more left to send */
+        SRF_RETURN_NEXT(funcctx, currency);
+    }
+    else
+    {
+        /* do when there is no more left */
+        SRF_RETURN_DONE(funcctx);
+    }
+}

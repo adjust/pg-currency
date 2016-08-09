@@ -5,11 +5,13 @@
 #include "fmgr.h"
 #include "access/hash.h"
 #include "libpq/pqformat.h"
+#include "funcapi.h"
 
 typedef unsigned char currency;
 
 #define PG_RETURN_CURRENCY(x) PG_RETURN_CHAR(x)
 #define PG_GETARG_CURRENCY(x) PG_GETARG_CHAR(x)
+#define CurrencyGetDatum(x) (CharGetDatum(x))
 
 #define AED 4277572
 #define AFN 4277838
@@ -356,6 +358,7 @@ PG_FUNCTION_INFO_V1(currency_ge);
 PG_FUNCTION_INFO_V1(currency_gt);
 PG_FUNCTION_INFO_V1(currency_cmp);
 PG_FUNCTION_INFO_V1(hash_currency);
+PG_FUNCTION_INFO_V1(supported_currencies);
 
 Datum currency_in(PG_FUNCTION_ARGS);
 Datum currency_out(PG_FUNCTION_ARGS);
@@ -369,5 +372,6 @@ Datum currency_ge(PG_FUNCTION_ARGS);
 Datum currency_gt(PG_FUNCTION_ARGS);
 Datum currency_cmp(PG_FUNCTION_ARGS);
 Datum hash_currency(PG_FUNCTION_ARGS);
+Datum supported_currencies(PG_FUNCTION_ARGS);
 
 #endif // PG_CURRENCY_H
