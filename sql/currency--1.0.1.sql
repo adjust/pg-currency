@@ -1,3 +1,4 @@
+
 CREATE TYPE currency;
 
 CREATE FUNCTION supported_currencies()
