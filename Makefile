@@ -21,3 +21,8 @@ concat:
 PG_CONFIG = pg_config
 PGXS := $(shell $(PG_CONFIG) --pgxs)
 include $(PGXS)
+
+ifeq ($(shell test $(VERSION_NUM) -lt 90600; echo $$?),0)
+REGRESS := $(filter-out parallel_test, $(REGRESS))
+endif
+
