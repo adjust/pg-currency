@@ -11,14 +11,18 @@ LATERAL (SELECT CASE WHEN i % 3 = 0 THEN 'USD'::currency
          END as country) c;
 EXPLAIN (costs off,verbose)
 SELECT COUNT(*) FROM parallel_test WHERE  c = 'USD';;
-                     QUERY PLAN                      
------------------------------------------------------
- Aggregate
+                           QUERY PLAN                            
+-----------------------------------------------------------------
+ Finalize Aggregate
    Output: count(*)
-   ->  Seq Scan on public.parallel_test
-         Output: i, c
-         Filter: (parallel_test.c = 'USD'::currency)
-(5 rows)
+   ->  Gather
+         Output: (PARTIAL count(*))
+         Workers Planned: 4
+         ->  Partial Aggregate
+               Output: PARTIAL count(*)
+               ->  Parallel Seq Scan on public.parallel_test
+                     Filter: (parallel_test.c = 'USD'::currency)
+(9 rows)
 
 EXPLAIN (costs off,verbose)
 SELECT c, COUNT(*) FROM parallel_test GROUP BY 1;
