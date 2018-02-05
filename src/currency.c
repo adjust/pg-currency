@@ -2,174 +2,18 @@
 
 PG_MODULE_MAGIC;
 
-static currency sort_map[] = {
-  1,
-  2,
-  3,
-  4,
-  5,
-  6,
-  7,
-  8,
-  9,
-  10,
-  11,
-  12,
-  13,
-  14,
-  15,
-  16,
-  17,
-  18,
-  19,
-  20,
-  21,
-  22,
-  23,
-  25,
-  26,
-  27,
-  28,
-  29,
-  30,
-  31,
-  32,
-  33,
-  34,
-  35,
-  36,
-  37,
-  38,
-  39,
-  40,
-  41,
-  42,
-  43,
-  44,
-  45,
-  46,
-  47,
-  48,
-  49,
-  50,
-  51,
-  52,
-  53,
-  54,
-  55,
-  56,
-  57,
-  58,
-  59,
-  60,
-  61,
-  62,
-  63,
-  64,
-  65,
-  66,
-  67,
-  68,
-  69,
-  70,
-  71,
-  72,
-  73,
-  74,
-  75,
-  76,
-  77,
-  78,
-  79,
-  80,
-  81,
-  82,
-  83,
-  84,
-  85,
-  86,
-  87,
-  88,
-  89,
-  90,
-  91,
-  92,
-  93,
-  94,
-  95,
-  96,
-  97,
-  98,
-  99,
-  100,
-  101,
-  102,
-  103,
-  104,
-  105,
-  106,
-  107,
-  108,
-  109,
-  110,
-  111,
-  112,
-  113,
-  114,
-  115,
-  116,
-  117,
-  118,
-  119,
-  120,
-  121,
-  122,
-  123,
-  124,
-  125,
-  126,
-  127,
-  128,
-  129,
-  130,
-  131,
-  132,
-  133,
-  134,
-  135,
-  136,
-  137,
-  138,
-  139,
-  140,
-  141,
-  142,
-  143,
-  144,
-  145,
-  146,
-  147,
-  148,
-  149,
-  150,
-  151,
-  152,
-  153,
-  154,
-  155,
-  156,
-  157,
-  158,
-  159,
-  160,
-  161,
-  162,
-  163,
-  164,
-  24
-};
+static currency sort_map[] = { 1,   2,   3,   4,   5,   6,   7,   8,   9,   10,  11,  12,  13,  14,  15,  16,  17,
+                               18,  19,  20,  21,  22,  23,  25,  26,  27,  28,  29,  30,  31,  32,  33,  34,  35,
+                               36,  37,  38,  39,  40,  41,  42,  43,  44,  45,  46,  47,  48,  49,  50,  51,  52,
+                               53,  54,  55,  56,  57,  58,  59,  60,  61,  62,  63,  64,  65,  66,  67,  68,  69,
+                               70,  71,  72,  73,  74,  75,  76,  77,  78,  79,  80,  81,  82,  83,  84,  85,  86,
+                               87,  88,  89,  90,  91,  92,  93,  94,  95,  96,  97,  98,  99,  100, 101, 102, 103,
+                               104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118, 119, 120,
+                               121, 122, 123, 124, 125, 126, 127, 128, 129, 130, 131, 132, 133, 134, 135, 136, 137,
+                               138, 139, 140, 141, 142, 143, 144, 145, 146, 147, 148, 149, 150, 151, 152, 153, 154,
+                               155, 156, 157, 158, 159, 160, 161, 162, 163, 164, 24 };
 
-_Static_assert (LAST == sizeof(sort_map) / sizeof(sort_map[0]) + 1, "sort map size and Currency size should be equal");
+_Static_assert(LAST == sizeof(sort_map) / sizeof(sort_map[0]) + 1, "sort map size and Currency size should be equal");
 
 static int
 currency_cmp_internal(currency a, currency b)
@@ -177,15 +21,14 @@ currency_cmp_internal(currency a, currency b)
     return sort_map[a - 1] - sort_map[b - 1];
 }
 
-Datum
-currency_in(PG_FUNCTION_ARGS)
+Datum currency_in(PG_FUNCTION_ARGS)
 {
     char *str = PG_GETARG_CSTRING(0);
 
     if (strlen(str) != 3)
         elog(ERROR, "invalid currency input string %s", str);
 
-    switch (str[2] | str[1] << 8 | str[0] << 16)
+    switch (toupper(str[2]) | toupper(str[1]) << 8 | toupper(str[0]) << 16)
     {
         case AED: PG_RETURN_CURRENCY(AED_INTERNAL);
         case AFN: PG_RETURN_CURRENCY(AFN_INTERNAL);
@@ -355,532 +198,193 @@ currency_in(PG_FUNCTION_ARGS)
     }
 }
 
-Datum
-currency_out(PG_FUNCTION_ARGS)
+Datum currency_out(PG_FUNCTION_ARGS)
 {
     currency curr = PG_GETARG_CHAR(0);
-    char *out = palloc(4);
-    uint32 key = 0;
+    char *   out  = palloc(4);
+    uint32   key  = 0;
     switch (curr)
     {
-        case AED_INTERNAL:
-            key = AED;
-            break;
-        case AFN_INTERNAL:
-            key = AFN;
-            break;
-        case ALL_INTERNAL:
-            key = ALL;
-            break;
-        case AMD_INTERNAL:
-            key = AMD;
-            break;
-        case ANG_INTERNAL:
-            key = ANG;
-            break;
-        case AOA_INTERNAL:
-            key = AOA;
-            break;
-        case ARS_INTERNAL:
-            key = ARS;
-            break;
-        case AUD_INTERNAL:
-            key = AUD;
-            break;
-        case AWG_INTERNAL:
-            key = AWG;
-            break;
-        case AZN_INTERNAL:
-            key = AZN;
-            break;
-        case BAM_INTERNAL:
-            key = BAM;
-            break;
-        case BBD_INTERNAL:
-            key = BBD;
-            break;
-        case BDT_INTERNAL:
-            key = BDT;
-            break;
-        case BGN_INTERNAL:
-            key = BGN;
-            break;
-        case BHD_INTERNAL:
-            key = BHD;
-            break;
-        case BIF_INTERNAL:
-            key = BIF;
-            break;
-        case BMD_INTERNAL:
-            key = BMD;
-            break;
-        case BND_INTERNAL:
-            key = BND;
-            break;
-        case BOB_INTERNAL:
-            key = BOB;
-            break;
-        case BRL_INTERNAL:
-            key = BRL;
-            break;
-        case BSD_INTERNAL:
-            key = BSD;
-            break;
-        case BTN_INTERNAL:
-            key = BTN;
-            break;
-        case BWP_INTERNAL:
-            key = BWP;
-            break;
-        case BYN_INTERNAL:
-            key = BYN;
-            break;
-        case BYR_INTERNAL:
-            key = BYR;
-            break;
-        case BZD_INTERNAL:
-            key = BZD;
-            break;
-        case CAD_INTERNAL:
-            key = CAD;
-            break;
-        case CDF_INTERNAL:
-            key = CDF;
-            break;
-        case CHF_INTERNAL:
-            key = CHF;
-            break;
-        case CLP_INTERNAL:
-            key = CLP;
-            break;
-        case CNY_INTERNAL:
-            key = CNY;
-            break;
-        case COP_INTERNAL:
-            key = COP;
-            break;
-        case CRC_INTERNAL:
-            key = CRC;
-            break;
-        case CUC_INTERNAL:
-            key = CUC;
-            break;
-        case CUP_INTERNAL:
-            key = CUP;
-            break;
-        case CVE_INTERNAL:
-            key = CVE;
-            break;
-        case CZK_INTERNAL:
-            key = CZK;
-            break;
-        case DJF_INTERNAL:
-            key = DJF;
-            break;
-        case DKK_INTERNAL:
-            key = DKK;
-            break;
-        case DOP_INTERNAL:
-            key = DOP;
-            break;
-        case DZD_INTERNAL:
-            key = DZD;
-            break;
-        case EGP_INTERNAL:
-            key = EGP;
-            break;
-        case ERN_INTERNAL:
-            key = ERN;
-            break;
-        case ETB_INTERNAL:
-            key = ETB;
-            break;
-        case EUR_INTERNAL:
-            key = EUR;
-            break;
-        case FJD_INTERNAL:
-            key = FJD;
-            break;
-        case FKP_INTERNAL:
-            key = FKP;
-            break;
-        case GBP_INTERNAL:
-            key = GBP;
-            break;
-        case GEL_INTERNAL:
-            key = GEL;
-            break;
-        case GGP_INTERNAL:
-            key = GGP;
-            break;
-        case GHS_INTERNAL:
-            key = GHS;
-            break;
-        case GIP_INTERNAL:
-            key = GIP;
-            break;
-        case GMD_INTERNAL:
-            key = GMD;
-            break;
-        case GNF_INTERNAL:
-            key = GNF;
-            break;
-        case GTQ_INTERNAL:
-            key = GTQ;
-            break;
-        case GYD_INTERNAL:
-            key = GYD;
-            break;
-        case HKD_INTERNAL:
-            key = HKD;
-            break;
-        case HNL_INTERNAL:
-            key = HNL;
-            break;
-        case HRK_INTERNAL:
-            key = HRK;
-            break;
-        case HTG_INTERNAL:
-            key = HTG;
-            break;
-        case HUF_INTERNAL:
-            key = HUF;
-            break;
-        case IDR_INTERNAL:
-            key = IDR;
-            break;
-        case ILS_INTERNAL:
-            key = ILS;
-            break;
-        case IMP_INTERNAL:
-            key = IMP;
-            break;
-        case INR_INTERNAL:
-            key = INR;
-            break;
-        case IQD_INTERNAL:
-            key = IQD;
-            break;
-        case IRR_INTERNAL:
-            key = IRR;
-            break;
-        case ISK_INTERNAL:
-            key = ISK;
-            break;
-        case JEP_INTERNAL:
-            key = JEP;
-            break;
-        case JMD_INTERNAL:
-            key = JMD;
-            break;
-        case JOD_INTERNAL:
-            key = JOD;
-            break;
-        case JPY_INTERNAL:
-            key = JPY;
-            break;
-        case KES_INTERNAL:
-            key = KES;
-            break;
-        case KGS_INTERNAL:
-            key = KGS;
-            break;
-        case KHR_INTERNAL:
-            key = KHR;
-            break;
-        case KMF_INTERNAL:
-            key = KMF;
-            break;
-        case KPW_INTERNAL:
-            key = KPW;
-            break;
-        case KRW_INTERNAL:
-            key = KRW;
-            break;
-        case KWD_INTERNAL:
-            key = KWD;
-            break;
-        case KYD_INTERNAL:
-            key = KYD;
-            break;
-        case KZT_INTERNAL:
-            key = KZT;
-            break;
-        case LAK_INTERNAL:
-            key = LAK;
-            break;
-        case LBP_INTERNAL:
-            key = LBP;
-            break;
-        case LKR_INTERNAL:
-            key = LKR;
-            break;
-        case LRD_INTERNAL:
-            key = LRD;
-            break;
-        case LSL_INTERNAL:
-            key = LSL;
-            break;
-        case LTL_INTERNAL:
-            key = LTL;
-            break;
-        case LYD_INTERNAL:
-            key = LYD;
-            break;
-        case MAD_INTERNAL:
-            key = MAD;
-            break;
-        case MDL_INTERNAL:
-            key = MDL;
-            break;
-        case MGA_INTERNAL:
-            key = MGA;
-            break;
-        case MKD_INTERNAL:
-            key = MKD;
-            break;
-        case MMK_INTERNAL:
-            key = MMK;
-            break;
-        case MNT_INTERNAL:
-            key = MNT;
-            break;
-        case MOP_INTERNAL:
-            key = MOP;
-            break;
-        case MRO_INTERNAL:
-            key = MRO;
-            break;
-        case MUR_INTERNAL:
-            key = MUR;
-            break;
-        case MVR_INTERNAL:
-            key = MVR;
-            break;
-        case MWK_INTERNAL:
-            key = MWK;
-            break;
-        case MXN_INTERNAL:
-            key = MXN;
-            break;
-        case MYR_INTERNAL:
-            key = MYR;
-            break;
-        case MZN_INTERNAL:
-            key = MZN;
-            break;
-        case NAD_INTERNAL:
-            key = NAD;
-            break;
-        case NGN_INTERNAL:
-            key = NGN;
-            break;
-        case NIO_INTERNAL:
-            key = NIO;
-            break;
-        case NOK_INTERNAL:
-            key = NOK;
-            break;
-        case NPR_INTERNAL:
-            key = NPR;
-            break;
-        case NZD_INTERNAL:
-            key = NZD;
-            break;
-        case OMR_INTERNAL:
-            key = OMR;
-            break;
-        case PAB_INTERNAL:
-            key = PAB;
-            break;
-        case PEN_INTERNAL:
-            key = PEN;
-            break;
-        case PGK_INTERNAL:
-            key = PGK;
-            break;
-        case PHP_INTERNAL:
-            key = PHP;
-            break;
-        case PKR_INTERNAL:
-            key = PKR;
-            break;
-        case PLN_INTERNAL:
-            key = PLN;
-            break;
-        case PYG_INTERNAL:
-            key = PYG;
-            break;
-        case QAR_INTERNAL:
-            key = QAR;
-            break;
-        case RON_INTERNAL:
-            key = RON;
-            break;
-        case RSD_INTERNAL:
-            key = RSD;
-            break;
-        case RUB_INTERNAL:
-            key = RUB;
-            break;
-        case RWF_INTERNAL:
-            key = RWF;
-            break;
-        case SAR_INTERNAL:
-            key = SAR;
-            break;
-        case SBD_INTERNAL:
-            key = SBD;
-            break;
-        case SCR_INTERNAL:
-            key = SCR;
-            break;
-        case SDG_INTERNAL:
-            key = SDG;
-            break;
-        case SEK_INTERNAL:
-            key = SEK;
-            break;
-        case SGD_INTERNAL:
-            key = SGD;
-            break;
-        case SHP_INTERNAL:
-            key = SHP;
-            break;
-        case SLL_INTERNAL:
-            key = SLL;
-            break;
-        case SOS_INTERNAL:
-            key = SOS;
-            break;
-        case SPL_INTERNAL:
-            key = SPL;
-            break;
-        case SRD_INTERNAL:
-            key = SRD;
-            break;
-        case STD_INTERNAL:
-            key = STD;
-            break;
-        case SVC_INTERNAL:
-            key = SVC;
-            break;
-        case SYP_INTERNAL:
-            key = SYP;
-            break;
-        case SZL_INTERNAL:
-            key = SZL;
-            break;
-        case THB_INTERNAL:
-            key = THB;
-            break;
-        case TJS_INTERNAL:
-            key = TJS;
-            break;
-        case TMT_INTERNAL:
-            key = TMT;
-            break;
-        case TND_INTERNAL:
-            key = TND;
-            break;
-        case TOP_INTERNAL:
-            key = TOP;
-            break;
-        case TRY_INTERNAL:
-            key = TRY;
-            break;
-        case TTD_INTERNAL:
-            key = TTD;
-            break;
-        case TVD_INTERNAL:
-            key = TVD;
-            break;
-        case TWD_INTERNAL:
-            key = TWD;
-            break;
-        case TZS_INTERNAL:
-            key = TZS;
-            break;
-        case UAH_INTERNAL:
-            key = UAH;
-            break;
-        case UGX_INTERNAL:
-            key = UGX;
-            break;
-        case USD_INTERNAL:
-            key = USD;
-            break;
-        case UYU_INTERNAL:
-            key = UYU;
-            break;
-        case UZS_INTERNAL:
-            key = UZS;
-            break;
-        case VEF_INTERNAL:
-            key = VEF;
-            break;
-        case VND_INTERNAL:
-            key = VND;
-            break;
-        case VUV_INTERNAL:
-            key = VUV;
-            break;
-        case WST_INTERNAL:
-            key = WST;
-            break;
-        case XAF_INTERNAL:
-            key = XAF;
-            break;
-        case XCD_INTERNAL:
-            key = XCD;
-            break;
-        case XDR_INTERNAL:
-            key = XDR;
-            break;
-        case XOF_INTERNAL:
-            key = XOF;
-            break;
-        case XPF_INTERNAL:
-            key = XPF;
-            break;
-        case YER_INTERNAL:
-            key = YER;
-            break;
-        case ZAR_INTERNAL:
-            key = ZAR;
-            break;
-        case ZMW_INTERNAL:
-            key = ZMW;
-            break;
-        case ZWD_INTERNAL:
-            key = ZWD;
-            break;
-        default:
-            elog(ERROR, "internal currency representation unknown: %u", key);
+        case AED_INTERNAL: key = AED; break;
+        case AFN_INTERNAL: key = AFN; break;
+        case ALL_INTERNAL: key = ALL; break;
+        case AMD_INTERNAL: key = AMD; break;
+        case ANG_INTERNAL: key = ANG; break;
+        case AOA_INTERNAL: key = AOA; break;
+        case ARS_INTERNAL: key = ARS; break;
+        case AUD_INTERNAL: key = AUD; break;
+        case AWG_INTERNAL: key = AWG; break;
+        case AZN_INTERNAL: key = AZN; break;
+        case BAM_INTERNAL: key = BAM; break;
+        case BBD_INTERNAL: key = BBD; break;
+        case BDT_INTERNAL: key = BDT; break;
+        case BGN_INTERNAL: key = BGN; break;
+        case BHD_INTERNAL: key = BHD; break;
+        case BIF_INTERNAL: key = BIF; break;
+        case BMD_INTERNAL: key = BMD; break;
+        case BND_INTERNAL: key = BND; break;
+        case BOB_INTERNAL: key = BOB; break;
+        case BRL_INTERNAL: key = BRL; break;
+        case BSD_INTERNAL: key = BSD; break;
+        case BTN_INTERNAL: key = BTN; break;
+        case BWP_INTERNAL: key = BWP; break;
+        case BYN_INTERNAL: key = BYN; break;
+        case BYR_INTERNAL: key = BYR; break;
+        case BZD_INTERNAL: key = BZD; break;
+        case CAD_INTERNAL: key = CAD; break;
+        case CDF_INTERNAL: key = CDF; break;
+        case CHF_INTERNAL: key = CHF; break;
+        case CLP_INTERNAL: key = CLP; break;
+        case CNY_INTERNAL: key = CNY; break;
+        case COP_INTERNAL: key = COP; break;
+        case CRC_INTERNAL: key = CRC; break;
+        case CUC_INTERNAL: key = CUC; break;
+        case CUP_INTERNAL: key = CUP; break;
+        case CVE_INTERNAL: key = CVE; break;
+        case CZK_INTERNAL: key = CZK; break;
+        case DJF_INTERNAL: key = DJF; break;
+        case DKK_INTERNAL: key = DKK; break;
+        case DOP_INTERNAL: key = DOP; break;
+        case DZD_INTERNAL: key = DZD; break;
+        case EGP_INTERNAL: key = EGP; break;
+        case ERN_INTERNAL: key = ERN; break;
+        case ETB_INTERNAL: key = ETB; break;
+        case EUR_INTERNAL: key = EUR; break;
+        case FJD_INTERNAL: key = FJD; break;
+        case FKP_INTERNAL: key = FKP; break;
+        case GBP_INTERNAL: key = GBP; break;
+        case GEL_INTERNAL: key = GEL; break;
+        case GGP_INTERNAL: key = GGP; break;
+        case GHS_INTERNAL: key = GHS; break;
+        case GIP_INTERNAL: key = GIP; break;
+        case GMD_INTERNAL: key = GMD; break;
+        case GNF_INTERNAL: key = GNF; break;
+        case GTQ_INTERNAL: key = GTQ; break;
+        case GYD_INTERNAL: key = GYD; break;
+        case HKD_INTERNAL: key = HKD; break;
+        case HNL_INTERNAL: key = HNL; break;
+        case HRK_INTERNAL: key = HRK; break;
+        case HTG_INTERNAL: key = HTG; break;
+        case HUF_INTERNAL: key = HUF; break;
+        case IDR_INTERNAL: key = IDR; break;
+        case ILS_INTERNAL: key = ILS; break;
+        case IMP_INTERNAL: key = IMP; break;
+        case INR_INTERNAL: key = INR; break;
+        case IQD_INTERNAL: key = IQD; break;
+        case IRR_INTERNAL: key = IRR; break;
+        case ISK_INTERNAL: key = ISK; break;
+        case JEP_INTERNAL: key = JEP; break;
+        case JMD_INTERNAL: key = JMD; break;
+        case JOD_INTERNAL: key = JOD; break;
+        case JPY_INTERNAL: key = JPY; break;
+        case KES_INTERNAL: key = KES; break;
+        case KGS_INTERNAL: key = KGS; break;
+        case KHR_INTERNAL: key = KHR; break;
+        case KMF_INTERNAL: key = KMF; break;
+        case KPW_INTERNAL: key = KPW; break;
+        case KRW_INTERNAL: key = KRW; break;
+        case KWD_INTERNAL: key = KWD; break;
+        case KYD_INTERNAL: key = KYD; break;
+        case KZT_INTERNAL: key = KZT; break;
+        case LAK_INTERNAL: key = LAK; break;
+        case LBP_INTERNAL: key = LBP; break;
+        case LKR_INTERNAL: key = LKR; break;
+        case LRD_INTERNAL: key = LRD; break;
+        case LSL_INTERNAL: key = LSL; break;
+        case LTL_INTERNAL: key = LTL; break;
+        case LYD_INTERNAL: key = LYD; break;
+        case MAD_INTERNAL: key = MAD; break;
+        case MDL_INTERNAL: key = MDL; break;
+        case MGA_INTERNAL: key = MGA; break;
+        case MKD_INTERNAL: key = MKD; break;
+        case MMK_INTERNAL: key = MMK; break;
+        case MNT_INTERNAL: key = MNT; break;
+        case MOP_INTERNAL: key = MOP; break;
+        case MRO_INTERNAL: key = MRO; break;
+        case MUR_INTERNAL: key = MUR; break;
+        case MVR_INTERNAL: key = MVR; break;
+        case MWK_INTERNAL: key = MWK; break;
+        case MXN_INTERNAL: key = MXN; break;
+        case MYR_INTERNAL: key = MYR; break;
+        case MZN_INTERNAL: key = MZN; break;
+        case NAD_INTERNAL: key = NAD; break;
+        case NGN_INTERNAL: key = NGN; break;
+        case NIO_INTERNAL: key = NIO; break;
+        case NOK_INTERNAL: key = NOK; break;
+        case NPR_INTERNAL: key = NPR; break;
+        case NZD_INTERNAL: key = NZD; break;
+        case OMR_INTERNAL: key = OMR; break;
+        case PAB_INTERNAL: key = PAB; break;
+        case PEN_INTERNAL: key = PEN; break;
+        case PGK_INTERNAL: key = PGK; break;
+        case PHP_INTERNAL: key = PHP; break;
+        case PKR_INTERNAL: key = PKR; break;
+        case PLN_INTERNAL: key = PLN; break;
+        case PYG_INTERNAL: key = PYG; break;
+        case QAR_INTERNAL: key = QAR; break;
+        case RON_INTERNAL: key = RON; break;
+        case RSD_INTERNAL: key = RSD; break;
+        case RUB_INTERNAL: key = RUB; break;
+        case RWF_INTERNAL: key = RWF; break;
+        case SAR_INTERNAL: key = SAR; break;
+        case SBD_INTERNAL: key = SBD; break;
+        case SCR_INTERNAL: key = SCR; break;
+        case SDG_INTERNAL: key = SDG; break;
+        case SEK_INTERNAL: key = SEK; break;
+        case SGD_INTERNAL: key = SGD; break;
+        case SHP_INTERNAL: key = SHP; break;
+        case SLL_INTERNAL: key = SLL; break;
+        case SOS_INTERNAL: key = SOS; break;
+        case SPL_INTERNAL: key = SPL; break;
+        case SRD_INTERNAL: key = SRD; break;
+        case STD_INTERNAL: key = STD; break;
+        case SVC_INTERNAL: key = SVC; break;
+        case SYP_INTERNAL: key = SYP; break;
+        case SZL_INTERNAL: key = SZL; break;
+        case THB_INTERNAL: key = THB; break;
+        case TJS_INTERNAL: key = TJS; break;
+        case TMT_INTERNAL: key = TMT; break;
+        case TND_INTERNAL: key = TND; break;
+        case TOP_INTERNAL: key = TOP; break;
+        case TRY_INTERNAL: key = TRY; break;
+        case TTD_INTERNAL: key = TTD; break;
+        case TVD_INTERNAL: key = TVD; break;
+        case TWD_INTERNAL: key = TWD; break;
+        case TZS_INTERNAL: key = TZS; break;
+        case UAH_INTERNAL: key = UAH; break;
+        case UGX_INTERNAL: key = UGX; break;
+        case USD_INTERNAL: key = USD; break;
+        case UYU_INTERNAL: key = UYU; break;
+        case UZS_INTERNAL: key = UZS; break;
+        case VEF_INTERNAL: key = VEF; break;
+        case VND_INTERNAL: key = VND; break;
+        case VUV_INTERNAL: key = VUV; break;
+        case WST_INTERNAL: key = WST; break;
+        case XAF_INTERNAL: key = XAF; break;
+        case XCD_INTERNAL: key = XCD; break;
+        case XDR_INTERNAL: key = XDR; break;
+        case XOF_INTERNAL: key = XOF; break;
+        case XPF_INTERNAL: key = XPF; break;
+        case YER_INTERNAL: key = YER; break;
+        case ZAR_INTERNAL: key = ZAR; break;
+        case ZMW_INTERNAL: key = ZMW; break;
+        case ZWD_INTERNAL: key = ZWD; break;
+        default: elog(ERROR, "internal currency representation unknown: %u", key);
     }
-    snprintf(
-            out,
-            4,
-            "%c%c%c",
-            (key & 0xFF0000) >> 16,
-            (key & 0xFF00) >> 8,
-            (key & 0xFF)
-    );
+    snprintf(out, 4, "%c%c%c", (key & 0xFF0000) >> 16, (key & 0xFF00) >> 8, (key & 0xFF));
     PG_RETURN_POINTER(out);
 }
 
-Datum
-currency_recv(PG_FUNCTION_ARGS)
+Datum currency_recv(PG_FUNCTION_ARGS)
 {
-    StringInfo buf = (StringInfo) PG_GETARG_POINTER(0);
-    currency result = pq_getmsgbyte(buf);
+    StringInfo buf    = (StringInfo) PG_GETARG_POINTER(0);
+    currency   result = pq_getmsgbyte(buf);
     PG_RETURN_CURRENCY(result);
 }
 
-Datum
-currency_send(PG_FUNCTION_ARGS)
+Datum currency_send(PG_FUNCTION_ARGS)
 {
-    currency a = PG_GETARG_CURRENCY(0);
+    currency       a = PG_GETARG_CURRENCY(0);
     StringInfoData buf;
 
     pq_begintypsend(&buf);
@@ -888,70 +392,61 @@ currency_send(PG_FUNCTION_ARGS)
     PG_RETURN_BYTEA_P(pq_endtypsend(&buf));
 }
 
-Datum
-currency_lt(PG_FUNCTION_ARGS)
+Datum currency_lt(PG_FUNCTION_ARGS)
 {
     currency a = PG_GETARG_CURRENCY(0);
     currency b = PG_GETARG_CURRENCY(1);
     PG_RETURN_BOOL(currency_cmp_internal(a, b) < 0);
 }
 
-Datum
-currency_le(PG_FUNCTION_ARGS)
+Datum currency_le(PG_FUNCTION_ARGS)
 {
     currency a = PG_GETARG_CURRENCY(0);
     currency b = PG_GETARG_CURRENCY(1);
     PG_RETURN_BOOL(currency_cmp_internal(a, b) <= 0);
 }
 
-Datum
-currency_eq(PG_FUNCTION_ARGS)
+Datum currency_eq(PG_FUNCTION_ARGS)
 {
     currency a = PG_GETARG_CURRENCY(0);
     currency b = PG_GETARG_CURRENCY(1);
     PG_RETURN_BOOL(currency_cmp_internal(a, b) == 0);
 }
 
-Datum
-currency_neq(PG_FUNCTION_ARGS)
+Datum currency_neq(PG_FUNCTION_ARGS)
 {
     currency a = PG_GETARG_CURRENCY(0);
     currency b = PG_GETARG_CURRENCY(1);
     PG_RETURN_BOOL(currency_cmp_internal(a, b) != 0);
 }
 
-Datum
-currency_ge(PG_FUNCTION_ARGS)
+Datum currency_ge(PG_FUNCTION_ARGS)
 {
     currency a = PG_GETARG_CURRENCY(0);
     currency b = PG_GETARG_CURRENCY(1);
     PG_RETURN_BOOL(currency_cmp_internal(a, b) >= 0);
 }
 
-Datum
-currency_gt(PG_FUNCTION_ARGS)
+Datum currency_gt(PG_FUNCTION_ARGS)
 {
     currency a = PG_GETARG_CURRENCY(0);
     currency b = PG_GETARG_CURRENCY(1);
     PG_RETURN_BOOL(currency_cmp_internal(a, b) > 0);
 }
 
-Datum
-currency_cmp(PG_FUNCTION_ARGS)
+Datum currency_cmp(PG_FUNCTION_ARGS)
 {
     currency a = PG_GETARG_CURRENCY(0);
     currency b = PG_GETARG_CURRENCY(1);
     PG_RETURN_INT32(currency_cmp_internal(a, b));
 }
 
-Datum
-hash_currency(PG_FUNCTION_ARGS)
+Datum hash_currency(PG_FUNCTION_ARGS)
 {
-        return hash_uint32((int32) PG_GETARG_CHAR(0));
+    return hash_uint32((int32) PG_GETARG_CHAR(0));
 }
 
-Datum
-supported_currencies(PG_FUNCTION_ARGS)
+Datum supported_currencies(PG_FUNCTION_ARGS)
 {
     FuncCallContext *funcctx;
 
