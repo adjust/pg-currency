@@ -14,6 +14,7 @@ jobs:
         pg: [13, 12, 11, 10, 9.6, 9.5]
     name: PostgreSQL ${{ matrix.pg }}
     runs-on: ubuntu-latest
+    if: "! contains(toJSON(github.event.commits.*.message), '[skip-ci]')"
     container: zilder/pg-ext-check
     steps:
       - run: pg-setup ${{ matrix.pg }}

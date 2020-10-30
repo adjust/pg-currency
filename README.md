@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/adjust/pg-currency.svg)](https://travis-ci.org/adjust/pg-currency)
+![Build Status](https://github.com/adjust/pg-currency/workflows/CI/badge.svg)
 
 # PG Currency
 
