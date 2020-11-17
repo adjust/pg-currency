@@ -21,8 +21,9 @@ SELECT COUNT(*) FROM parallel_test WHERE  c = 'USD';;
          ->  Partial Aggregate
                Output: PARTIAL count(*)
                ->  Parallel Seq Scan on public.parallel_test
+                     Output: i, c
                      Filter: (parallel_test.c = 'USD'::currency)
-(9 rows)
+(10 rows)
 
 EXPLAIN (costs off,verbose)
 SELECT c, COUNT(*) FROM parallel_test GROUP BY 1;
@@ -31,17 +32,17 @@ SELECT c, COUNT(*) FROM parallel_test GROUP BY 1;
  Finalize GroupAggregate
    Output: c, count(*)
    Group Key: parallel_test.c
-   ->  Sort
+   ->  Gather Merge
          Output: c, (PARTIAL count(*))
-         Sort Key: parallel_test.c
-         ->  Gather
+         Workers Planned: 4
+         ->  Sort
                Output: c, (PARTIAL count(*))
-               Workers Planned: 4
+               Sort Key: parallel_test.c
                ->  Partial HashAggregate
                      Output: c, PARTIAL count(*)
                      Group Key: parallel_test.c
                      ->  Parallel Seq Scan on public.parallel_test
-                           Output: c
+                           Output: i, c
 (14 rows)
 
 ROLLBACK;
