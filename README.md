@@ -1,4 +1,4 @@
-![Build Status](https://github.com/adjust/pg-currency/workflows/CI/badge.svg)
+[![CI](https://github.com/adjust/pg-currency/actions/workflows/main.yml/badge.svg)](https://github.com/adjust/pg-currency/actions/workflows/main.yml)
 
 # PG Currency
 
