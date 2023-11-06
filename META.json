@@ -1,15 +1,17 @@
 {
    "name": "currency",
    "abstract": "Enumerable currency list, stored in a single-byte, fixed-length type.",
-   "version": "0.0.3",
-   "maintainer": [ "Chris Travers <chris.travers@adjust.com>", "Manuel Kniep <rapimo@adjust.com>" ],
+   "version": "0.0.4",
+   "maintainer" : [
+      "adjustgmbh"
+   ],
    "license": {
       "PostgreSQL": "http://www.postgresql.org/about/licence"
    },
    "provides": { 
       "currency": {
          "file": "sql/pg-currency.sql",
-         "version": "0.0.3",
+         "version": "0.0.4",
          "abstract": "Enumerable currency list, stored in a single-byte, fixed-length type."
       }
    },
@@ -21,7 +23,7 @@
    "prereqs": {
       "runtime": {
         "requires": {
-           "PostgreSQL": "9.3.0"
+           "PostgreSQL": "10.0.0"
         }
       }
    },
