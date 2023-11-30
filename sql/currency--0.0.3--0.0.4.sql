@@ -1,0 +1,3 @@
+-- currency 0.0.4
+--
+-- New version for update PGXN 
