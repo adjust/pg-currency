@@ -1,6 +1,13 @@
 BEGIN;
 SET max_parallel_workers_per_gather=4;
-SET force_parallel_mode=on;
+DO $$
+BEGIN
+    IF current_setting('server_version_num')::int >= 160000 THEN
+        EXECUTE 'SET debug_parallel_query = on';
+    ELSE
+        EXECUTE 'SET force_parallel_mode = on';
+    END IF;
+END $$;
 CREATE TABLE parallel_test(i int, c currency) WITH (parallel_workers = 4);
 INSERT INTO parallel_test (i, c)
 SELECT i, c.country

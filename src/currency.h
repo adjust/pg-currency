@@ -6,6 +6,9 @@
 #include "access/hash.h"
 #include "libpq/pqformat.h"
 #include "funcapi.h"
+#if PG_VERSION_NUM >= 160000
+#include "varatt.h"
+#endif
 
 typedef unsigned char currency;
 
