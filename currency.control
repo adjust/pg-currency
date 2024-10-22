@@ -1,5 +1,5 @@
 # currency extension
 comment = 'Custom PostgreSQL currency type'
-default_version = '0.0.4'
+default_version = '0.0.5'
 relocatable = true
 requires = 'plpgsql'
