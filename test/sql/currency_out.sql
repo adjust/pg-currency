@@ -94,6 +94,7 @@ SELECT currency_out('MMK');
 SELECT currency_out('MNT');
 SELECT currency_out('MOP');
 SELECT currency_out('MRO');
+SELECT currency_out('MRU');
 SELECT currency_out('MUR');
 SELECT currency_out('MVR');
 SELECT currency_out('MWK');

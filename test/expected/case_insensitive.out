@@ -574,6 +574,12 @@ SELECT currency_in('mro');
  MRO
 (1 row)
 
+SELECT currency_in('mru');
+ currency_in 
+-------------
+ MRU
+(1 row)
+
 SELECT currency_in('mur');
  currency_in 
 -------------

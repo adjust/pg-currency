@@ -97,6 +97,7 @@ SELECT * FROM supported_currencies() c ORDER BY c;
  MNT
  MOP
  MRO
+ MRU
  MUR
  MVR
  MWK
@@ -165,5 +166,5 @@ SELECT * FROM supported_currencies() c ORDER BY c;
  ZAR
  ZMW
  ZWD
-(164 rows)
+(165 rows)
 

@@ -68,6 +68,7 @@ SELECT * FROM (
   ('MWK'::currency),
   ('MVR'::currency),
   ('MUR'::currency),
+  ('MRU'::currency),
   ('MRO'::currency),
   ('MOP'::currency),
   ('MNT'::currency),
