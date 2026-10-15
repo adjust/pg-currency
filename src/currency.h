@@ -112,6 +112,7 @@ typedef unsigned char currency;
 #define MNT 5066324
 #define MOP 5066576
 #define MRO 5067343
+#define MRU 5067349
 #define MUR 5068114
 #define MVR 5068370
 #define MWK 5068619
@@ -346,6 +347,7 @@ enum Currency {
   ZMW_INTERNAL,
   ZWD_INTERNAL,
   BYN_INTERNAL,
+  MRU_INTERNAL,
   LAST
 };
 

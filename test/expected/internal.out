@@ -97,6 +97,7 @@
  MNT |       93
  MOP |       94
  MRO |       95
+ MRU |      165
  MUR |       96
  MVR |       97
  MWK |       98
@@ -165,5 +166,5 @@
  ZAR |      161
  ZMW |      162
  ZWD |      163
-(164 rows)
+(165 rows)
 

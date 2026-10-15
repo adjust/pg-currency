@@ -68,6 +68,7 @@ SELECT * FROM (
   ('MWK'::currency),
   ('MVR'::currency),
   ('MUR'::currency),
+  ('MRU'::currency),
   ('MRO'::currency),
   ('MOP'::currency),
   ('MNT'::currency),
@@ -264,6 +265,7 @@ ORDER BY c;
  MNT
  MOP
  MRO
+ MRU
  MUR
  MVR
  MWK
@@ -332,5 +334,5 @@ ORDER BY c;
  ZAR
  ZMW
  ZWD
-(164 rows)
+(165 rows)
 

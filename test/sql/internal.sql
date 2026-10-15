@@ -98,6 +98,7 @@ VALUES
 ('MNT'),
 ('MOP'),
 ('MRO'),
+('MRU'),
 ('MUR'),
 ('MVR'),
 ('MWK'),

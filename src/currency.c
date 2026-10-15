@@ -7,11 +7,11 @@ static currency sort_map[] = { 1,   2,   3,   4,   5,   6,   7,   8,   9,   10, 
                                36,  37,  38,  39,  40,  41,  42,  43,  44,  45,  46,  47,  48,  49,  50,  51,  52,
                                53,  54,  55,  56,  57,  58,  59,  60,  61,  62,  63,  64,  65,  66,  67,  68,  69,
                                70,  71,  72,  73,  74,  75,  76,  77,  78,  79,  80,  81,  82,  83,  84,  85,  86,
-                               87,  88,  89,  90,  91,  92,  93,  94,  95,  96,  97,  98,  99,  100, 101, 102, 103,
-                               104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118, 119, 120,
-                               121, 122, 123, 124, 125, 126, 127, 128, 129, 130, 131, 132, 133, 134, 135, 136, 137,
-                               138, 139, 140, 141, 142, 143, 144, 145, 146, 147, 148, 149, 150, 151, 152, 153, 154,
-                               155, 156, 157, 158, 159, 160, 161, 162, 163, 164, 24 };
+                               87,  88,  89,  90,  91,  92,  93,  94,  95,  96,  98,  99,  100, 101, 102, 103, 104,
+                               105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121,
+                               122, 123, 124, 125, 126, 127, 128, 129, 130, 131, 132, 133, 134, 135, 136, 137, 138,
+                               139, 140, 141, 142, 143, 144, 145, 146, 147, 148, 149, 150, 151, 152, 153, 154, 155,
+                               156, 157, 158, 159, 160, 161, 162, 163, 164, 165, 24,  97 };
 
 _Static_assert(LAST == sizeof(sort_map) / sizeof(sort_map[0]) + 1, "sort map size and Currency size should be equal");
 
@@ -126,6 +126,7 @@ Datum currency_in(PG_FUNCTION_ARGS)
         case MNT: PG_RETURN_CURRENCY(MNT_INTERNAL);
         case MOP: PG_RETURN_CURRENCY(MOP_INTERNAL);
         case MRO: PG_RETURN_CURRENCY(MRO_INTERNAL);
+        case MRU: PG_RETURN_CURRENCY(MRU_INTERNAL);
         case MUR: PG_RETURN_CURRENCY(MUR_INTERNAL);
         case MVR: PG_RETURN_CURRENCY(MVR_INTERNAL);
         case MWK: PG_RETURN_CURRENCY(MWK_INTERNAL);
@@ -301,6 +302,7 @@ Datum currency_out(PG_FUNCTION_ARGS)
         case MNT_INTERNAL: key = MNT; break;
         case MOP_INTERNAL: key = MOP; break;
         case MRO_INTERNAL: key = MRO; break;
+        case MRU_INTERNAL: key = MRU; break;
         case MUR_INTERNAL: key = MUR; break;
         case MVR_INTERNAL: key = MVR; break;
         case MWK_INTERNAL: key = MWK; break;
